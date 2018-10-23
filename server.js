@@ -4,11 +4,15 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 
 =======
 // Database
 >>>>>>> b6cba4619313aa0fad05494da6f59c06440e6d56
+=======
+
+>>>>>>> Stashed changes
 require("dotenv").config();
 
 const pgp = require("pg-promise")();
@@ -38,6 +42,18 @@ app.get("/api/market_stall", function(req, res) {
       res.json({ error: error.message });
     });
 });
+app.get("/api/market_stall_reviews", function(req, res) {
+  db.any(
+    `SELECT * FROM reviews`
+  )
+    .then(function(data) {
+      res.json(data);
+    })
+    .catch(function(error) {
+      res.json({ error: error.message });
+    });
+});
+
 
 app.get("/api/dish", function(req, res) {
   db.any(
@@ -57,30 +73,7 @@ app.get("/api/market_stall/with_dish", function(req, res) {
     `SELECT *
       FROM market_stall,dish
       WHERE market_stall.id = dish.market_stall_id `
-<<<<<<< HEAD
-    )
-      .then(function(data) {
-        res.json(data);
-      })
-      .catch(function(error) {
-        res.json({ error: error.message });
-      });
-  });
 
-  app.get("/api/market_stall/:id", function(req, res) {
-    const market_stall_id = req.params.id
-    db.any(
-      `SELECT *  FROM market_stall,dish\
-      WHERE id =$1 AND market_stall.id = dish.market_stall_id`,[market_stall_id]
-    )
-      .then(function(data) {
-        res.json(data);
-      })
-      .catch(function(error) {
-        res.json({ error: error.message });
-      });
-  });
-=======
   )
     .then(function(data) {
       res.json(data);
@@ -89,7 +82,7 @@ app.get("/api/market_stall/with_dish", function(req, res) {
       res.json({ error: error.message });
     });
 });
->>>>>>> b6cba4619313aa0fad05494da6f59c06440e6d56
+
 
 app.get("/api/market_stall/:id", function(req, res) {
   const market_stall_id = req.params.id;
