@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-responsive-modal';
+import StarRatings from 'react-star-ratings';
 
 class NewReview extends React.Component{
 
@@ -8,13 +9,14 @@ class NewReview extends React.Component{
     super();
     this.state ={
       name:"",
-      rating:null,
+      rating:0,
       review:""
     }
     this.handleChangeName = this.handleChangeName.bind(this);
     this.handleChangeRating = this.handleChangeRating.bind(this);
     this.handleChangeReview = this.handleChangeReview.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
    handleChangeName(event){
@@ -24,9 +26,9 @@ class NewReview extends React.Component{
 
   }
 
-  handleChangeRating(event){
+  handleChangeRating(newRating, name){
     this.setState({
-      rating: event.target.value
+      rating: newRating
     })
   }
 
@@ -36,7 +38,7 @@ class NewReview extends React.Component{
     })
   }
 
-  handleSubmit(){
+  handleSubmit(event){
     event.preventDefault();
     const newReview={
       name: this.state.name,
@@ -55,25 +57,39 @@ class NewReview extends React.Component{
         .then(()=>{
           this.setState({
             name:"",
-            rating:null,
+            rating:0,
             review:""
           })
         })
         .catch(error => {error: error.message})
 
+    this.props.handleNewReview();
+
+  }
+
+  handleClose(){
+    this.props.receiveClose();
   }
 
 render(){
 
   return(
-    <Modal open={this.props.displayNewReviewForm} onClose={this.handleSubmit} center>
+    <Modal open={this.props.displayNewReviewForm} onClose={this.handleClose} center>
     <div className="user">
       <p>Your name</p>
       <input type="text" onChange={this.handleChangeName} value={this.state.name} placeholder="Name"/>
-      <p>Rating</p>
-      <input type="number" onChange={this.handleChangeRating} value= {this.state.rating} placeholder="Rating"/>
+      {/* <p>Rating</p>
+      <input type="number" onChange={this.handleChangeRating} value= {this.state.rating} placeholder="Rating"/> */}
+      <StarRatings
+          rating={this.state.rating}
+          starRatedColor="orange"
+          starHoverColor="yellow"
+          changeRating={this.handleChangeRating}
+          numberOfStars={5}
+          className='star__rating'
+        />
       <p>Details of your experience</p>
-      <input type="text" onChange={this.handleChangePhone} value= {this.state.review} placeholder="Your thoughts"/>
+      <input type="text" onChange={this.handleChangeReview} value= {this.state.review} placeholder="Your thoughts"/>
       <p type="button" className="button" onClick ={this.handleSubmit}>Post</p>
     </div>
     </Modal>
