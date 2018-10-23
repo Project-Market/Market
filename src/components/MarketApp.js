@@ -9,6 +9,8 @@ class MarketApp extends React.Component {
       filterCuisine: false,
       filterTopRated: false
     };
+    this.stallFetch = this.stallFetch.bind(this);
+    this.submitReviewHandle = this.submitReviewHandle.bind(this);
   }
 
   stallFetch() {
@@ -120,11 +122,16 @@ class MarketApp extends React.Component {
       headers: {
         "Content-Type": "application/json"
       }
-    }).then(data => {});
+    }).then(data => {
+      alert("your review has been posted");
+    });
   }
 
   render() {
     return;
-    <Stores stalls={this.state.stalls} reviewReciever="reciever" />;
+    <Stores
+      stalls={this.state.stalls}
+      reviewReciever={this.submitReviewHandle}
+    />;
   }
 }
