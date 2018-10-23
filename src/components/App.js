@@ -1,4 +1,5 @@
 import React from "react";
+import Map from './Map';
 
 import "../styles/App.scss";
 
@@ -13,7 +14,7 @@ class App extends React.Component {
     render(){
     return (
       <div>
-        Market app
+        <Map/>
       </div>
     )
   }

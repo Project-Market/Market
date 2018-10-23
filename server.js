@@ -3,16 +3,16 @@ const bodyParser = require("body-parser");
 const app = express();
 
 //Database
-require("dotenv").config();
+// require("dotenv").config();
 
 const pgp = require("pg-promise")();
-const db = pgp({
-  host: "localhost",
-  port: 5432,
-  database: process.env.DB_NAME,
-  user: process.env.DB_USERNAME,
-  password: process.env.DB_PASSWORD
-});
+// const db = pgp({
+//   host: "localhost",
+//   port: 5432,
+//   database: process.env.DB_NAME,
+//   user: process.env.DB_USERNAME,
+//   password: process.env.DB_PASSWORD
+// });
 
 app.use(bodyParser.json());
 app.use("/static", express.static("static"));
