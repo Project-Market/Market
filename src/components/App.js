@@ -1,23 +1,22 @@
 import React from "react";
-import Map from './Map';
-
+import Map from "./Map";
+import MarketApp from "./MarketApp";
 import "../styles/App.scss";
 
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {
-
-    }
+    this.state = {};
   }
 
-    render(){
+  render() {
     return (
       <div>
-        <Map/>
+        <Map />
+        <MarketApp />
       </div>
-    )
+    );
   }
-  }
+}
 
-  export default App;
+export default App;
