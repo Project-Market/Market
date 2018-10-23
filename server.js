@@ -4,15 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 
-<<<<<<< Updated upstream
-<<<<<<< HEAD
 
-=======
-// Database
->>>>>>> b6cba4619313aa0fad05494da6f59c06440e6d56
-=======
-
->>>>>>> Stashed changes
 require("dotenv").config();
 
 const pgp = require("pg-promise")();
@@ -99,6 +91,20 @@ app.get("/api/market_stall/:id", function(req, res) {
     });
 });
 
+app.post("/api/reviews", (req,res) => {
+  const {market_stall_id,user_name,rating, review} = req.body;
+  db.one(
+    `INSERT INTO reviews (market_stall_id,user_name,rating, review)
+    VALUES ($1, $2, $3, $4)`,
+     [market_stall_id,user_name,rating, review])
+     .then(res.json(req.body))
+        .catch(error => {
+          res.json({
+            error: error.message
+        });
+      })
+    });
+  
 app.listen(8080, function() {
   console.log("Listening on port 8080");
 });
