@@ -28,7 +28,8 @@
     "pg-promise": "^8.5.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
-    "react-google-maps": "^9.4.5"
+    "react-google-maps": "^9.4.5",
+    "react-responsive-modal": "^3.4.0"
   },
   "devDependencies": {
     "babel-jest": "^23.6.0",
