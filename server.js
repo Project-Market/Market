@@ -4,7 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 
-Database
+
 require("dotenv").config();
 
 const pgp = require("pg-promise")();
@@ -69,7 +69,7 @@ app.get("/api/market_stall/with_dish", function(req, res) {
     const market_stall_id = req.params.id
     db.any(
       `SELECT *  FROM market_stall,dish\
-      WHERE id =$1 AND market_stall.id = dish.market_stall_id`,[market_stall_id] 
+      WHERE id =$1 AND market_stall.id = dish.market_stall_id`,[market_stall_id]
     )
       .then(function(data) {
         res.json(data);
