@@ -26,7 +26,8 @@
     "nodemon": "^1.18.4",
     "pg-promise": "^8.5.1",
     "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react-dom": "^16.5.2",
+    "react-google-maps": "^9.4.5"
   },
   "devDependencies": {
     "babel-jest": "^23.6.0",
