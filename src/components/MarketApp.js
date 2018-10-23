@@ -1,6 +1,6 @@
 import React from "react";
 import Filter from "./Filter";
-// import Stores from "./Stores";
+import Stalls from "./Stalls";
 class MarketApp extends React.Component {
   constructor() {
     super();
@@ -20,10 +20,15 @@ class MarketApp extends React.Component {
         return response.json();
       })
       .then(data => {
+        console.log(data)
         this.setState({
           stalls: data
         });
       });
+  }
+
+  componentDidMount(){
+    this.stallFetch()
   }
 
   // DATA should == [
@@ -128,15 +133,17 @@ class MarketApp extends React.Component {
     });
   }
 
-  filterReciever(filter) {}
+  filterReceiver(filter) {}
 
   render() {
-    return;
-    <Stores
+    return(
+    <div>
+    <Stalls
       stalls={this.state.stalls}
-      reviewReciever={this.submitReviewHandle}
-    />;
-  }
+      reviewReceiver={this.submitReviewHandle}
+    />
+    </div>
+    )}
 }
 
 export default MarketApp;

@@ -1,12 +1,12 @@
 import React from "react";
-import Stall from "./Stall";
-import StoreDetails from "./StoreDetails"
 
-class Store extends React.PureComponent {
+import StoreDetails from "./StoreDetails"
+import { throws } from "assert";
+
+class Stall extends React.PureComponent {
     constructor() {
-        this.clickStallMoreInfo = this.clickStallMoreInfo.bind(this);
         super();
-  
+        this.clickStallMore= this.clickStallMore.bind(this);
     }
 
     clickStallMore(){
@@ -20,9 +20,9 @@ class Store extends React.PureComponent {
                 <h3>{this.props.stall.average_rating}</h3>
                 <h3>{this.props.stall.takes_card}</h3>
                 <h3>{this.props.stall.category}</h3>
-            </div>
+            </div> 
             <StoreDetails
-            stall={this.props.stall} review={this.props.reviewReceiver}/>
+            stall={this.props.stall} review={this.props.reviewReceiver} stall_id={this.state.stall_id}/> 
             </li>
             
           )  

@@ -1,5 +1,5 @@
 import React from "react";
-import Stalls from "./Stalls";
+import Stall from "./Stall";
 
 class Stalls extends React.PureComponent {
   constructor() {
@@ -7,15 +7,17 @@ class Stalls extends React.PureComponent {
     super();
 
   }
-
+  
     render() {
+      console.log(this.props.stalls)
+      const keys = Object.values(this.props.stalls)
         return (
            
-            <ul className="stalls" id="stalls">{this.props.stalls.map((stall, index) => {
-            return <Stall key={index} stall={stall} review={this.props.reviewReceiver}/>;
+            <ul className="stalls" id="stalls">{keys.map((stall, index) => {
+            return <Stall key={index} stall_id={stall.id} stall={stall} review={this.props.reviewReceiver}/>
             })}
             </ul>
-        );
+        )
       }
 
 }
