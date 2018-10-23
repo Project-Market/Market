@@ -31,9 +31,12 @@ app.get("/api/market_stall", function(req, res) {
       res.json({ error: error.message });
     });
 });
-app.get("/api/market_stall_reviews", function(req, res) {
+
+//updated get request to get stall review;
+app.get("/api/market_stall_review/:id", function(req, res) {
+  const stall_id = req.params.id;
   db.any(
-    `SELECT * FROM reviews`
+    `SELECT * FROM review where review.market_stall_id=$1`,[stall_id]
   )
     .then(function(data) {
       res.json(data);
@@ -87,20 +90,22 @@ app.get("/api/market_stall/:id", function(req, res) {
     });
 });
 
-app.post("/api/reviews", (req,res) => {
-  const {market_stall_id,user_name,rating, review} = req.body;
+//update review post
+app.post(`/api/market_stall_review/:id`, (req,res) => {
+  const stall_id=req.params.id;
+  const {name,rating, review} = req.body;
   db.one(
-    `INSERT INTO reviews (market_stall_id,user_name,rating, review)
+    `INSERT INTO review (market_stall_id,user_name,rating, review)
     VALUES ($1, $2, $3, $4)`,
-     [market_stall_id,user_name,rating, review])
+     [stall_id, name, rating, review])
      .then(res.json(req.body))
         .catch(error => {
-          res.json({
+          res.status(200).json({
             error: error.message
         });
       })
     });
-  
+
 app.listen(8080, function() {
   console.log("Listening on port 8080");
 });
