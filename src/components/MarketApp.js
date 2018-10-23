@@ -1,4 +1,5 @@
 import React from "react";
+import Filter from "./Filter";
 // import Stores from "./Stores";
 class MarketApp extends React.Component {
   constructor() {
@@ -117,7 +118,7 @@ class MarketApp extends React.Component {
 
   submitReviewHandle(review) {
     fetch("/api/reviews", {
-      method: postMessage,
+      method: post,
       body: JSON.stringify(review),
       headers: {
         "Content-Type": "application/json"
@@ -127,6 +128,8 @@ class MarketApp extends React.Component {
     });
   }
 
+  filterReciever(filter) {}
+
   render() {
     return;
     <Stores
@@ -135,3 +138,5 @@ class MarketApp extends React.Component {
     />;
   }
 }
+
+export default MarketApp;
