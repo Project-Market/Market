@@ -1,6 +1,8 @@
 import React from "react";
-import Map from "./Map";
-import MarketApp from "./MarketApp";
+
+import Map from './Map';
+import Reviews from './Reviews';
+import MarketApp from './MarketApp';
 import "../styles/App.scss";
 
 class App extends React.Component {
@@ -9,11 +11,13 @@ class App extends React.Component {
     this.state = {};
   }
 
-  render() {
+    render(){
+      const stall_id=1;
     return (
       <div>
-        <Map />
-        <MarketApp />
+        <Map/>
+          <MarketApp />
+        <Reviews stall_id={stall_id}/>
       </div>
     );
   }
