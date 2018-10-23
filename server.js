@@ -4,9 +4,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 
-
-require("dotenv").config();
-
 const pgp = require("pg-promise")();
 const db = pgp({
   host: "localhost",
@@ -49,8 +46,7 @@ app.get("/api/market_stall_reviews", function(req, res) {
 
 app.get("/api/dish", function(req, res) {
   db.any(
-    `SELECT * FROM dish
-    `
+    `SELECT * FROM dish`
   )
     .then(function(data) {
       res.json(data);
