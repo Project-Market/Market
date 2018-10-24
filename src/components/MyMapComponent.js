@@ -1,11 +1,16 @@
 import React from "react";
-import { compose, withProps } from "recompose";
+import { compose, withProps,withStateHandlers } from "recompose";
 import {
   withScriptjs,
   withGoogleMap,
   GoogleMap,
-  Marker
+  Marker,
+  InfoWindow
 } from "react-google-maps";
+import SingleMarker from './SingleMarker';
+// const {InfoWindow} = require("react-google-maps/lib/components/addons/InfoWindow")
+
+//const demoFancyMapStyles = require("./demoFancyMapStyles.json");
 
 const MyMapComponent = compose(
   withProps({
@@ -14,7 +19,10 @@ const MyMapComponent = compose(
 
     containerElement: <div style={{ height: `300px` }} />,
 
-    mapElement: <div style={{ height: `100%` }} />
+    mapElement: <div style={{ height: `100%` }} />,
+
+    center: { lat: 51.520131, lng: -0.109311 },
+
   }),
   withScriptjs,
   withGoogleMap
@@ -22,18 +30,14 @@ const MyMapComponent = compose(
   return (
     <GoogleMap
       defaultZoom={16}
-      defaultCenter={{ lat: 51.520131, lng: -0.109311 }}
+      defaultCenter={props.center}
     >
       {props.markerLocations.map(location => {
-        return (
-          <Marker
-            key={`${location.lat}${location.lng}`}
-            position={{ lat: location.lat, lng: location.lng }}
-            onClick={props.onMarkerClick}
-          />
-        );
+
+      return  <SingleMarker location={location}/>
       })}
     </GoogleMap>
+
   );
 });
 
