@@ -6,12 +6,14 @@ class MarketApp extends React.Component {
     super();
     this.state = {
       stalls: [],
+      cuisine: "",
       filterCard: false,
-      filterCuisine: false,
       filterTopRated: false
     };
     this.stallFetch = this.stallFetch.bind(this);
     this.submitReviewHandle = this.submitReviewHandle.bind(this);
+    this.cuisineFilter = this.cuisineFilter.bind(this);
+    this.cardFilterHandle = this.cardFilterHandle.bind(this);
   }
 
   stallFetch() {
@@ -128,14 +130,28 @@ class MarketApp extends React.Component {
     });
   }
 
-  filterReciever(filter) {}
+  cuisineReciever(cuisine) {
+    this.setState({
+      cuisine: cuisine
+    });
+  }
+
+  cardFilterHandle() {
+    this.setState({
+      filterCard: !this.state.filterCard
+    });
+  }
 
   render() {
-    return;
-    <Stores
-      stalls={this.state.stalls}
-      reviewReciever={this.submitReviewHandle}
-    />;
+    return (
+      <div>
+        <Stores
+          stalls={this.state.stalls}
+          reviewReciever={this.submitReviewHandle}
+        />
+        <Filter cuisine={this.cuisineFilter} cardFilter={this.cardFilter} />
+      </div>
+    );
   }
 }
 

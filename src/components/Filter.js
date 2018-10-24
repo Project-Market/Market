@@ -1,10 +1,26 @@
 import React from "react";
-import { renderComponent } from "recompose";
 
 class Filter extends React.Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      cuisine: "",
+      cardFilter: false
+    };
+    this.cuisineSelectHandle = this.cuisineSelectHandle.bind(this);
+  }
+
+  cuisineSelectHandle(event) {
+    this.setState(
+      {
+        cuisine: event.target.value
+      },
+      this.props.cuisine(this.state.cuisine)
+    );
+  }
+
+  cardFilterHandle() {
+    this.props.cardFilter();
   }
 
   render() {
@@ -12,13 +28,18 @@ class Filter extends React.Component {
       <div className="filter">
         <form className="filter-form">
           <select name="Cuisine">
-            <option value="American" />
-            <option value="Burger" />
-            <option value="Indian" />
-            <option value="Mexican" />
+            <option onChange={this.cuisineSelectHandle} value="American" />
+            <option onChange={this.cuisineSelectHandle} value="Burger" />
+            <option onChange={this.cuisineSelectHandle} value="Indian" />
+            <option onChange={this.cuisineSelectHandle} value="Mexican" />
           </select>
 
-          <input type="checkbox" name="card" value="card">
+          <input
+            className="card-checkbox"
+            type="checkbox"
+            name="card"
+            value="card"
+          >
             Accepts Card
           </input>
         </form>
