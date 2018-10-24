@@ -82,8 +82,8 @@ render(){
       <input type="number" onChange={this.handleChangeRating} value= {this.state.rating} placeholder="Rating"/> */}
       <StarRatings
           rating={this.state.rating}
-          starRatedColor="orange"
-          starHoverColor="yellow"
+          starRatedColor="#0BBC62"
+          starHoverColor="#D2FF2E"
           changeRating={this.handleChangeRating}
           numberOfStars={5}
           className='star__rating'

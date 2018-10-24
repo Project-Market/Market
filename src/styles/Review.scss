@@ -1,0 +1,17 @@
+@import "parameters";
+.review__single{
+  display: flex;
+  flex-direction: column;
+  border-bottom: $border-color solid 1px;
+
+  p{
+    margin: $margin-double 0;
+  }
+
+  &__user{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

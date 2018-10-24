@@ -7,14 +7,14 @@ class StoreDetails extends React.Component {
       };
     }
 
-  
+
       fetchDishes() {
       fetch(`/api/market_stall/${this.props.stall_id}`)
         .then(function(response) {
           return response.json();
         })
         .then(data => {
-          console.log(data)
+        
           this.setState({
             dishes: data
           });
@@ -27,11 +27,11 @@ class StoreDetails extends React.Component {
 
 
     render() {
-      
+
       return (
         <div>
            {this.state.dishes.map(dish => {
-            
+
             return (
                 <div key={dish.id}>
                   <p>dish title:{dish.dish_title}</p>
@@ -45,6 +45,5 @@ class StoreDetails extends React.Component {
       );
     }
   }
-  
+
   export default StoreDetails;
-  

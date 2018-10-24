@@ -20,7 +20,7 @@ class MarketApp extends React.Component {
         return response.json();
       })
       .then(data => {
-        console.log(data)
+      
         this.setState({
           stalls: data
         });

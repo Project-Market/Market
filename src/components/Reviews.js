@@ -1,6 +1,7 @@
 import React from 'react';
 import Review from './Review';
 import NewReview from './NewReview';
+import '../styles/Reviews.scss';
 
 class Reviews extends React.Component{
   constructor(){
@@ -42,11 +43,14 @@ class Reviews extends React.Component{
     })
   }
 
-
+  //need to pass down average rating from parent as a prop
   render(){
     return(
       <div className="reviews">
-      <p type="button" onClick={this.handleNewReview}>Your thoughts?</p>
+        <h3>Review Summary</h3>
+        <h4>Average rating {this.props.average_rating}</h4>
+        <h4>{this.state.reviews.length} reviews</h4>
+      <p type="button" className="reviews__yourthoughts" onClick={this.handleNewReview}>Write your thoughts?</p>
 
       <div className="reviews__display">
         {this.state.reviews.map( review => {

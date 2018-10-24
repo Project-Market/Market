@@ -1,0 +1,15 @@
+@import "parameters";
+
+.reviews{
+  display: flex;
+  flex-direction: column;
+  border-top: grey solid 2px  ;
+  margin: $margin-double;
+
+
+  &__yourthoughts{
+    @extend %button;
+    padding: $content-padding;
+
+    }
+}
