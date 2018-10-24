@@ -1,6 +1,6 @@
 import React from "react";
 import Filter from "./Filter";
-// import Stores from "./Stores";
+import Stalls from "./Stalls";
 class MarketApp extends React.Component {
   constructor() {
     super();
@@ -22,10 +22,15 @@ class MarketApp extends React.Component {
         return response.json();
       })
       .then(data => {
+        console.log(data)
         this.setState({
           stalls: data
         });
       });
+  }
+
+  componentDidMount(){
+    this.stallFetch()
   }
 
   // DATA should == [
