@@ -22,10 +22,24 @@ app.get("/", function(req, res) {
   res.render("index");
 });
 
+//update to include accurate average rating
 app.get("/api/market_stall", function(req, res) {
   db.any(`SELECT * FROM market_stall`)
     .then(function(data) {
-      res.json(data);
+      const storesInfo = data;
+      db.any(
+        `select market_stall.id, Round(AVG(review.rating),1) as average
+from review, market_stall where review.market_stall_id=market_stall.id
+group by market_stall.id`
+      ).then(response => {
+        const ratings = response;
+        storesInfo.map(store => {
+          const averageRating = ratings.filter(item => item.id == store.id);
+          store.average_rating = averageRating[0].average;
+          return store;
+        });
+        return res.json(storesInfo);
+      });
     })
     .catch(function(error) {
       res.json({ error: error.message });
@@ -35,9 +49,7 @@ app.get("/api/market_stall", function(req, res) {
 //updated get request to get stall review;
 app.get("/api/market_stall_review/:id", function(req, res) {
   const stall_id = req.params.id;
-  db.any(
-    `SELECT * FROM review where review.market_stall_id=$1`,[stall_id]
-  )
+  db.any(`SELECT * FROM review where review.market_stall_id=$1`, [stall_id])
     .then(function(data) {
       res.json(data);
     })
@@ -46,11 +58,8 @@ app.get("/api/market_stall_review/:id", function(req, res) {
     });
 });
 
-
 app.get("/api/dish", function(req, res) {
-  db.any(
-    `SELECT * FROM dish`
-  )
+  db.any(`SELECT * FROM dish`)
     .then(function(data) {
       res.json(data);
     })
@@ -64,7 +73,6 @@ app.get("/api/market_stall/with_dish", function(req, res) {
     `SELECT *
       FROM market_stall,dish
       WHERE market_stall.id = dish.market_stall_id `
-
   )
     .then(function(data) {
       res.json(data);
@@ -74,13 +82,13 @@ app.get("/api/market_stall/with_dish", function(req, res) {
     });
 });
 
-
 app.get("/api/market_stall/:id", function(req, res) {
-  const market_stall_id = req.params.id;
+  const market_id = req.params.id;
   db.any(
-    `SELECT *  FROM market_stall,dish\
-      WHERE id =$1 AND market_stall.id = dish.market_stall_id`,
-    [market_stall_id]
+    `SELECT *  FROM market_stall, dish\
+      WHERE market_stall.id = dish.market_stall_id
+      AND market_stall.id =$1`,
+    [market_id]
   )
     .then(function(data) {
       res.json(data);
@@ -91,20 +99,21 @@ app.get("/api/market_stall/:id", function(req, res) {
 });
 
 //update review post
-app.post(`/api/market_stall_review/:id`, (req,res) => {
-  const stall_id=req.params.id;
-  const {name,rating, review} = req.body;
+app.post(`/api/market_stall_review/:id`, (req, res) => {
+  const stall_id = req.params.id;
+  const { name, rating, review } = req.body;
   db.one(
     `INSERT INTO review (market_stall_id,user_name,rating, review)
     VALUES ($1, $2, $3, $4)`,
-     [stall_id, name, rating, review])
-     .then(res.json(req.body))
-        .catch(error => {
-          res.status(200).json({
-            error: error.message
-        });
-      })
+    [stall_id, name, rating, review]
+  )
+    .then(res.json(req.body))
+    .catch(error => {
+      res.status(200).json({
+        error: error.message
+      });
     });
+});
 
 app.listen(8080, function() {
   console.log("Listening on port 8080");
