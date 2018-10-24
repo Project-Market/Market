@@ -1,0 +1,32 @@
+$primary-color: #252525;
+$background-color: #ffffff;
+$font-family: "courier new", courier, monospace;
+
+//color scheme
+$border-color:#878E88;
+$font-color:#252726;
+
+
+$normal-font-size:16px;
+$medium-font-size:13px;
+$small-font-size:10px;
+
+
+$background-color:#F5F5F5;
+
+$content-padding: 1px 7px 2px 7px;
+$card-gap: 10px;
+
+$margin:7px;
+$margin-double:14px;
+
+%button{
+  background-color: #878E88;
+  color: white;
+
+
+  &:hover {
+    background-color: #252726;
+    transition: 0.3s;
+}
+}

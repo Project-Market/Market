@@ -49,7 +49,7 @@ group by market_stall.id`
 //updated get request to get stall review;
 app.get("/api/market_stall_review/:id", function(req, res) {
   const stall_id = req.params.id;
-  db.any(`SELECT * FROM review where review.market_stall_id=$1`, [stall_id])
+  db.any(`SELECT * FROM review where review.market_stall_id=$1  order by review.id desc`, [stall_id])
     .then(function(data) {
       res.json(data);
     })
@@ -85,7 +85,7 @@ app.get("/api/market_stall/with_dish", function(req, res) {
 app.get("/api/market_stall/:id", function(req, res) {
   const market_id = req.params.id;
   db.any(
-    `SELECT *  FROM market_stall, dish\
+    `SELECT *  FROM market_stall, dish
       WHERE market_stall.id = dish.market_stall_id
       AND market_stall.id =$1`,
     [market_id]
