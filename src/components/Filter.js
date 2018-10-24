@@ -15,25 +15,27 @@ class Filter extends React.Component {
     super(props);
     this.state = {
       cuisine: "",
-      cardFilter: false,
-      filteredStalls: [],
-      stalls: props.stalls
+      cardFilter: false
     };
     this.cuisineSelectHandle = this.cuisineSelectHandle.bind(this);
     this.filterResultsCuisine = this.filterResultsCuisine.bind(this);
     this.cardClick = this.cardClick.bind(this);
+    this.cardFilterHandle = this.cardFilterHandle.bind(this);
   }
 
   cardClick() {
-    this.setState({
-      cardFilter: !this.state.cardFilter
-    });
+    this.setState(
+      {
+        cardFilter: !this.state.cardFilter
+      },
+      () => console.log(this.state.cardFilter)
+    );
   }
 
   cuisineSelectHandle(selectedCuisine) {
     this.setState(
       {
-        cuisine: selectedCuisine
+        cuisine: selectedCuisine.value
       },
       this.filterResultsCuisine
     );
@@ -41,18 +43,26 @@ class Filter extends React.Component {
 
   filterResultsCuisine() {
     let cuisine = this.state.cuisine;
-    console.log(cuisine);
-    let card = this.state.cardFilter;
-    let filteredByCuisineArray = this.state.stalls.filter(stall => {
-      console.log(stall.stallInfo.category);
-      if (stall.stallInfo.category == cuisine.value) return stall;
+    let filteredByCuisineArray = this.props.stalls.filter(stall => {
+      if (stall.category == cuisine) {
+        return stall;
+      }
     });
-    this.setState(
-      {
-        filteredStalls: filteredByCuisineArray
-      },
-      () => this.props.filteredResultsReceiver(this.state.filteredStalls)
-    );
+    console.log(filteredByCuisineArray);
+    if (this.state.cardFilter == true) {
+      this.cardFilterHandle(filteredByCuisineArray);
+    } else {
+      this.props.filteredResultsReceiver(filteredByCuisineArray);
+    }
+  }
+
+  cardFilterHandle(array) {
+    if (this.state.cardFilter == true) {
+      let newArray = array.filter(stall => {
+        if (stall.takes_card == true) return stall;
+      });
+      this.props.filteredResultsReceiver(newArray);
+    }
   }
 
   render() {

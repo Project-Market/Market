@@ -5,7 +5,8 @@ class MarketApp extends React.Component {
   constructor() {
     super();
     this.state = {
-      stalls: []
+      stalls: [],
+      filteredStalls: []
     };
     this.stallFetch = this.stallFetch.bind(this);
     this.receiveFilteredResults = this.receiveFilteredResults.bind(this);
@@ -23,7 +24,8 @@ class MarketApp extends React.Component {
       .then(data => {
         console.log(data);
         this.setState({
-          stalls: data
+          stalls: data,
+          filteredStalls: data
         });
       });
   }
@@ -31,7 +33,7 @@ class MarketApp extends React.Component {
   receiveFilteredResults(filteredStalls) {
     console.log(filteredStalls);
     this.setState({
-      stalls: filteredStalls
+      filteredStalls: filteredStalls
     });
   }
 
@@ -41,8 +43,12 @@ class MarketApp extends React.Component {
   render() {
     return (
       <div>
-        <Stalls stalls={this.state.stalls} />
+        <Stalls
+          stalls={this.state.stalls}
+          filteredStalls={this.state.filteredStalls}
+        />
         <Filter
+          filteredStalls={this.state.filteredStalls}
           stalls={this.state.stalls}
           filteredResultsReceiver={this.receiveFilteredResults}
         />
