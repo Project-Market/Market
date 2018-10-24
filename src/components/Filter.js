@@ -45,7 +45,9 @@ class Filter extends React.Component {
     let cuisine = this.state.cuisine;
     if (cuisine == "") {
       let filteredByCard = this.props.stalls;
-      this.cardFilterHandle(filteredByCard);
+      if (this.state.cardFilter == true) {
+        this.cardFilterHandle(filteredByCard);
+      } else this.props.filteredResultsReceiver(filteredByCard);
     } else {
       let filteredByCuisineArray = this.props.stalls.filter(stall => {
         if (stall.category == cuisine) {
