@@ -36,6 +36,7 @@ class Map extends React.PureComponent {
           { lat: 51.5258009, lng: -0.1093418 },
           { lat: 51.50544, lng: -0.0910606 }
         ]}
+        
         isMarkerShown={this.state.isMarkerShown}
         onMarkerClick={this.handleMarkerClick}
       />
