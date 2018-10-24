@@ -29,8 +29,9 @@ class MarketApp extends React.Component {
   }
 
   receiveFilteredResults(filteredStalls) {
+    console.log(filteredStalls);
     this.setState({
-      data: filteredStalls
+      stalls: filteredStalls
     });
   }
 
@@ -40,10 +41,7 @@ class MarketApp extends React.Component {
   render() {
     return (
       <div>
-        {/* <Stalls
-          stalls={this.state.stalls}
-          reviewReceiver={this.submitReviewHandle}
-        /> */}
+        <Stalls stalls={this.state.stalls} />
         <Filter
           stalls={this.state.stalls}
           filteredResultsReceiver={this.receiveFilteredResults}
