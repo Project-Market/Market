@@ -5,8 +5,8 @@ class Stalls extends React.PureComponent {
   constructor() {
 
     super();
-
   }
+
 
     render() {
       
@@ -23,6 +23,24 @@ class Stalls extends React.PureComponent {
         )
       }
 
+
+  render() {
+    const keys = this.props.filteredStalls;
+    console.log(keys);
+    return (
+      <ul className="stalls" id="stalls">
+        {keys.map((stall, index) => {
+          return (
+            <Stall
+              key={index}
+              stall={stall}
+              review={this.props.reviewReceiver}
+            />
+          );
+        })}
+      </ul>
+    );
+  }
 }
 
 export default Stalls;
