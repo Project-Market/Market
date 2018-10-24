@@ -28,7 +28,7 @@ class Filter extends React.Component {
       {
         cardFilter: !this.state.cardFilter
       },
-      () => console.log(this.state.cardFilter)
+      () => this.filterResultsCuisine()
     );
   }
 
@@ -43,16 +43,21 @@ class Filter extends React.Component {
 
   filterResultsCuisine() {
     let cuisine = this.state.cuisine;
-    let filteredByCuisineArray = this.props.stalls.filter(stall => {
-      if (stall.category == cuisine) {
-        return stall;
-      }
-    });
-    console.log(filteredByCuisineArray);
-    if (this.state.cardFilter == true) {
-      this.cardFilterHandle(filteredByCuisineArray);
+    if (cuisine == "") {
+      let filteredByCard = this.props.stalls;
+      this.cardFilterHandle(filteredByCard);
     } else {
-      this.props.filteredResultsReceiver(filteredByCuisineArray);
+      let filteredByCuisineArray = this.props.stalls.filter(stall => {
+        if (stall.category == cuisine) {
+          return stall;
+        }
+      });
+      console.log(filteredByCuisineArray);
+      if (this.state.cardFilter == true) {
+        this.cardFilterHandle(filteredByCuisineArray);
+      } else {
+        this.props.filteredResultsReceiver(filteredByCuisineArray);
+      }
     }
   }
 
