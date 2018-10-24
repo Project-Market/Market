@@ -1,0 +1,17 @@
+@import "defaults";
+
+.hide_dishes{
+    display:none;
+ 
+}
+
+.show_dishes{
+    display: block;
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100vw;
+    height:100vh;
+    background-color:white;
+    // z-index: 5;
+}
