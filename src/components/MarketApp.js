@@ -17,7 +17,7 @@ class MarketApp extends React.Component {
   }
 
   stallFetch() {
-    fetch("/api/market_stall")
+    fetch("/api/market_stall/")
       .then(function(response) {
         return response.json();
       })
@@ -36,6 +36,11 @@ class MarketApp extends React.Component {
       filteredStalls: filteredStalls
     });
   }
+  componentDidMount() {
+    this.stallFetch();
+  }
+
+  cuisineReciever(filteredStalls) {}
 
   // POST REVIEW should ==
   // {market_stall_id: 1,user_name: "Chris",rating: 5, review: "sublime"}

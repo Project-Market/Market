@@ -8,7 +8,7 @@ class Stalls extends React.PureComponent {
 
   render() {
     const keys = this.props.filteredStalls;
-
+    console.log(keys);
     return (
       <ul className="stalls" id="stalls">
         {keys.map((stall, index) => {
