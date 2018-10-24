@@ -48,7 +48,7 @@ CREATE TABLE days_open (
    friday_open text,
    friday_close text,
 PRIMARY KEY(ID),
-FOREIGN KEY(MARKET_STALL_ID) REFERENCES MARKET_STALL (ID)
+FOREIGN KEY(market_stall_id) REFERENCES market_stall (id)
 );
 
 
