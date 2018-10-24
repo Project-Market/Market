@@ -1,0 +1,14 @@
+insert into review values (default,1,  'amazing!', 5, 'Luke');
+insert into review values (default,0,  'amazing!', 5, 'Luke');
+insert into review values (default,2,  'nice', 4, 'Luke');
+insert into review values (default,3,  'soso', 2, 'Luke');
+insert into review values (default,4,  'never come back!', 1, 'Luke');
+insert into review values (default,5,  'amazing!', 5, 'Luke');
+insert into review values (default,6,  'amazing!', 5, 'Luke');
+insert into review values (default,1,  'bad', 5, 'Kate');
+insert into review values (default,0,  'amazing!', 5, 'Kate');
+insert into review values (default,2,  'below avg', 2, 'Kate');
+insert into review values (default,3,  'soso', 3, 'Kate');
+insert into review values (default,4,  'poor value for money', 1, 'Kate');
+insert into review values (default,5,  'amazing!', 5, 'Kate');
+insert into review values (default,6,  'amazing!', 5, 'Kate');
