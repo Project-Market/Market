@@ -4,27 +4,35 @@ import { render } from "react-dom";
 import StoreDetails from "./StoreDetails";
 import StarRatings from 'react-star-ratings';
 import "../styles/Stall.scss";
+import cx from 'classnames';
+
+
 
 class Stall extends React.PureComponent {
     constructor() {
         super();
-        this.state = {stallInfo:{}, stall_id:{}};
+        this.state = {stallInfo:{}, stall_id:{}, switcher:false};
         this.clickStallMore = this.clickStallMore.bind(this);
     }
 
     clickStallMore(){
-        this.setState({stallInfo: this.props.stall, stall_id: this.props.stall.id})
-        console.log(this.state);
-
-        //cx className here
+console.log("clicked!") 
+this.setState({switcher: !this.state.switcher}, ()=>console.log(this.state.switcher)
+)
+      //cx className here
     }
 
 //update the star ratings
       render() {
         let cardlogo = this.props.stall.takes_card === true ? "/static/img/logos/visa.png":"/static/img/logos/cash.png";
+        let cartlogoalt = this.props.stall.takes_card === true ? "This stall accepts payment by credit card":"This stall only accepts payments in cash";
+        const switcher = cx({"hide_dishes": !this.state.switcher}, {"show_dishes": this.state.switcher})
+        console.log(switcher)
+
           return (
 
-        <div onClick={this.clickStallMore} className="stall__info">
+        
+        <div  className="stall__info">
         <h3>{this.props.stall.title}</h3>
         <img className="stall__image" src={this.props.stall.image}/>
 
@@ -37,19 +45,25 @@ class Stall extends React.PureComponent {
             starDimension="20px"
             starSpacing="5px"
           />
-
-            <img src={cardlogo}/>
+            <img src={cardlogo} alt={cartlogoalt}/>
             <h3>{this.props.stall.category}</h3>
+        <button onClick={this.clickStallMore}>more info</button>
 
-        <StoreDetails
-            stall={this.props.stall}
-            review={this.props.reviewReceiver}
-            stall_id={this.props.stall.id}/>
-            </div>
-
-          )
+        <StoreDetails 
+        
+            stall={this.props.stall} 
+            stall_id={this.props.stall.id}
+            switcher={switcher}
+            />
+            </div>  
+            
+          )  
         }
-
+  
   }
-
+  
   export default Stall;
+
+
+
+         

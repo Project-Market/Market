@@ -1,9 +1,14 @@
 import React from 'react'
+import "../styles/StoreDetails.scss";
+import cx from 'classnames';
+
+
 class StoreDetails extends React.Component {
     constructor() {
       super();
       this.state = {
-        dishes: []
+        dishes: [],
+        show: false
       };
     }
 
@@ -25,15 +30,14 @@ class StoreDetails extends React.Component {
       this.fetchDishes()
     }
 
-
     render() {
 
       return (
-        <div>
+        <div className={this.props.switcher}>
            {this.state.dishes.map(dish => {
 
             return (
-                <div key={dish.id}>
+                <div  key={dish.id}>
                   <p>dish title:{dish.dish_title}</p>
                   <p>price:£{dish.price}</p>
                   <p>description:{dish.description}</p>
