@@ -12,7 +12,7 @@ const MyMapComponent = compose(
     googleMapURL: `https://maps.googleapis.com/maps/api/js?key=AIzaSyAMzOxPMWZ48_HxfwIoeLu6O0zpNmK2f6U&v=3.exp&libraries=geometry,drawing,places`,
     loadingElement: <div style={{ height: `100%` }} />,
 
-    containerElement: <div style={{ height: `150px` }} />,
+    containerElement: <div style={{ height: `300px` }} />,
 
     mapElement: <div style={{ height: `100%` }} />
   }),
@@ -21,7 +21,7 @@ const MyMapComponent = compose(
 )(props => {
   return (
     <GoogleMap
-      defaultZoom={18}
+      defaultZoom={16}
       defaultCenter={{ lat: 51.520131, lng: -0.109311 }}
     >
       {props.markerLocations.map(location => {

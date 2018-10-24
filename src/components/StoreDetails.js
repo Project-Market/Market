@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/StoreDetails.scss";
 import cx from "classnames";
+import Reviews from './Reviews';
 
 class StoreDetails extends React.Component {
   constructor() {
@@ -49,6 +50,7 @@ class StoreDetails extends React.Component {
             </div>
           );
         })}
+          <Reviews stall_id={this.props.stall_id} average_rating={this.props.stall.average_rating}/>
       </div>
     );
   }

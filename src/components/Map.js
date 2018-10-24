@@ -28,6 +28,7 @@ class Map extends React.PureComponent {
   }
 
   render() {
+
     return (
       <MyMapComponent
         markerLocations={[

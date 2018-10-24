@@ -35,7 +35,8 @@ group by market_stall.id`
         const ratings = response;
         storesInfo.map(store => {
           const averageRating = ratings.filter(item => item.id == store.id);
-          store.average_rating = averageRating[0].average;
+          store.average_rating = averageRating[0] ? averageRating[0].average : 0;
+        
           return store;
         });
         return res.json(storesInfo);
