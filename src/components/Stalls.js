@@ -14,7 +14,10 @@ class Stalls extends React.PureComponent {
         return (
            
             <ul className="stalls" id="stalls">{keys.map((stall, index) => {
-            return <Stall key={index} stall_id={stall.id} stall={stall} review={this.props.reviewReceiver}/>
+            return <Stall 
+            key={index} 
+            stall={stall} 
+            review={this.props.reviewReceiver}/>
             })}
             </ul>
         )

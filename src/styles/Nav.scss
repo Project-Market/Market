@@ -1,0 +1,13 @@
+@import "defaults";
+
+.nav{
+    display: flex;
+    // align-items: flex-start;
+    align-items: center;
+    height:50px;
+
+    img{
+width:30px;
+    }
+
+}   

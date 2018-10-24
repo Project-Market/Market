@@ -52,13 +52,13 @@ FOREIGN KEY(MARKET_STALL_ID) REFERENCES MARKET_STALL (ID)
 );
 
 
-INSERT INTO market_stall VALUES (0, 'KIN',7, '/img/1.jpg', 'asian', 'www.kin.com', true, null ,null, 'leather_lane');
-INSERT INTO market_stall VALUES (1, 'Boom Burger', 7, '/img/2.jpg', 'burger', 'www.kin.com', true, null ,null, 'leather_lane');
-INSERT INTO market_stall VALUES (2, 'Jamal Shake Shack', 7, '/img/3.jpg', 'american', 'www.kin.com', true, null ,null, 'leather_lane');
-INSERT INTO market_stall VALUES (3, 'Luke Warm Curry', 7, '/img/4.jpg', 'indian', 'www.kin.com', true, null ,null, 'leather_lane');
-INSERT INTO market_stall VALUES (4, 'Katsu Kate', 7, '/img/5.jpg', 'asian', 'www.kin.com', true, null ,null, 'leather_lane');
-INSERT INTO market_stall VALUES (5, 'Tom Yum', 7, '/img/6.jpg', 'asian', 'www.kin.com', true,null ,null, 'leather_lane');
-INSERT INTO market_stall VALUES (6, 'Burrito Brothers', 7, '/img/7.jpg', 'mexican', 'www.kin.com', true, null ,null, 'leather_lane');
+INSERT INTO market_stall VALUES (0, 'KIN',3, '/static/img/1.jpg', 'asian', 'www.kin.com', true, null ,null, 'leather_lane');
+INSERT INTO market_stall VALUES (1, 'Boom Burger', 4, '/static/img/2.jpg', 'burger', 'www.kin.com', false, null ,null, 'leather_lane');
+INSERT INTO market_stall VALUES (2, 'Jamal Shake Shack', 1, '/static/img/3.jpg', 'american', 'www.kin.com', false, null ,null, 'leather_lane');
+INSERT INTO market_stall VALUES (3, 'Luke Warm Curry', 5, '/static/img/4.jpg', 'indian', 'www.kin.com', true, null ,null, 'leather_lane');
+INSERT INTO market_stall VALUES (4, 'Katsu Kate', 4, '/static/img/5.jpg', 'asian', 'www.kin.com', true, null ,null, 'leather_lane');
+INSERT INTO market_stall VALUES (5, 'Tom Yum', 2, '/static/img/6.jpg', 'asian', 'www.kin.com', false, null ,null, 'leather_lane');
+INSERT INTO market_stall VALUES (6, 'Burrito Brothers', 5, '/static/img/7.jpg', 'mexican', 'www.kin.com', false, null ,null, 'leather_lane');
 ALTER SEQUENCE market_stall_id_seq RESTART WITH 7 INCREMENT BY 1;
 
 INSERT INTO dish VALUES(1,0,'chicken and waffles',6.00,'fried chicken with sweet waffles')
