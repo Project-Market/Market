@@ -1,6 +1,5 @@
 import React from "react";
 import Select from "react-select";
-//filter stall results in filter, pass them back to MarketApp
 
 const options = [
   { value: "american", label: "American" },
@@ -15,12 +14,15 @@ class Filter extends React.Component {
     super(props);
     this.state = {
       cuisine: "",
-      cardFilter: false
+      cardFilter: false,
+      ratingFilter: false
     };
     this.cuisineSelectHandle = this.cuisineSelectHandle.bind(this);
     this.filterResultsCuisine = this.filterResultsCuisine.bind(this);
     this.cardClick = this.cardClick.bind(this);
     this.cardFilterHandle = this.cardFilterHandle.bind(this);
+    this.ratingClick = this.ratingClick.bind(this);
+    this.ratingFilterHandle = this.ratingFilterHandle.bind(this);
   }
 
   cardClick() {
@@ -29,6 +31,15 @@ class Filter extends React.Component {
         cardFilter: !this.state.cardFilter
       },
       () => this.filterResultsCuisine()
+    );
+  }
+
+  ratingClick() {
+    this.setState(
+      {
+        ratingFilter: !this.state.ratingFilter
+      },
+      () => this.ratingFilterHandle(this.props.stalls)
     );
   }
 
@@ -72,6 +83,16 @@ class Filter extends React.Component {
     }
   }
 
+  ratingFilterHandle(array) {
+    let newArray = array;
+    if (this.state.ratingFilter == true) {
+      newArray.sort(function(a, b) {
+        return b.average_rating - a.average_rating;
+      });
+      this.props.filteredResultsReceiver(newArray);
+    }
+  }
+
   render() {
     const { selectedCuisine } = this.state.cuisine;
     return (
@@ -91,6 +112,16 @@ class Filter extends React.Component {
         />
 
         <label for="card">Accepts Card</label>
+
+        <input
+          className="rating-checkbox"
+          type="checkbox"
+          name="rating"
+          value="rating"
+          onClick={this.ratingClick}
+        />
+
+        <label for="rating">Sort by rating</label>
       </div>
     );
   }

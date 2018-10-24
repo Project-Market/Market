@@ -22,7 +22,6 @@ class MarketApp extends React.Component {
         return response.json();
       })
       .then(data => {
-
         this.setState({
           stalls: data,
           filteredStalls: data
@@ -39,8 +38,6 @@ class MarketApp extends React.Component {
   componentDidMount() {
     this.stallFetch();
   }
-
-  cuisineReciever(filteredStalls) {}
 
   // POST REVIEW should ==
   // {market_stall_id: 1,user_name: "Chris",rating: 5, review: "sublime"}
