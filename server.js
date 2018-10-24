@@ -76,11 +76,12 @@ app.get("/api/market_stall/with_dish", function(req, res) {
 
 
 app.get("/api/market_stall/:id", function(req, res) {
-  const market_stall_id = req.params.id;
+  const market_id = req.params.id;
   db.any(
-    `SELECT *  FROM market_stall,dish\
-      WHERE id =$1 AND market_stall.id = dish.market_stall_id`,
-    [market_stall_id]
+    `SELECT *  FROM market_stall, dish\
+      WHERE market_stall.id = dish.market_stall_id
+      AND market_stall.id =$1`,
+    [market_id]
   )
     .then(function(data) {
       res.json(data);

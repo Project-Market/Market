@@ -21,24 +21,25 @@ class Stall extends React.PureComponent {
       render() {
         let cardlogo = this.props.stall.takes_card === true ? "/static/img/logos/visa.png":"/static/img/logos/cash.png";
           return (
-            <li className="stall" >
-            <div onClick={this.clickStallMore} id={this.props.stall_id} className="stall__info">
-                <h3>{this.props.stall.title}</h3>
-                <img className="stall__image" src={this.props.stall.image}/>
-                <ReactStars
-                    count={5}
-                    value={this.props.stall.average_rating}
-                    size={24}
-                    edit={false}
-                    color2={'#ffd700'} />
-                <img src={cardlogo}/>
-                <h3>{this.props.stall.category}</h3>
-            </div> 
-            <StoreDetails
-            stall={this.state.stallInfo} 
+        
+        <div onClick={this.clickStallMore} className="stall__info">
+        <h3>{this.props.stall.title}</h3>
+        <img className="stall__image" src={this.props.stall.image}/>
+
+        <ReactStars
+            count={5}
+            value={this.props.stall.average_rating}
+            size={24}
+            edit={false}
+            color2={'#ffd700'} />
+            <img src={cardlogo}/>
+            <h3>{this.props.stall.category}</h3>
+        
+        <StoreDetails
+            stall={this.props.stall} 
             review={this.props.reviewReceiver} 
-            stall_id={this.state.stall_id}/> 
-            </li>
+            stall_id={this.props.stall.id}/>
+            </div>  
             
           )  
         }
@@ -46,4 +47,7 @@ class Stall extends React.PureComponent {
   }
   
   export default Stall;
+
+
+
 
