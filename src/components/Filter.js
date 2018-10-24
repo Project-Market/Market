@@ -8,6 +8,7 @@ class Filter extends React.Component {
       cardFilter: false
     };
     this.cuisineSelectHandle = this.cuisineSelectHandle.bind(this);
+    this.cardFilterHandle = this.cardFilterHandle.bind(this);
   }
 
   cuisineSelectHandle(event) {

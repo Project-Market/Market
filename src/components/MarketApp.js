@@ -12,7 +12,7 @@ class MarketApp extends React.Component {
     };
     this.stallFetch = this.stallFetch.bind(this);
     this.submitReviewHandle = this.submitReviewHandle.bind(this);
-    this.cuisineFilter = this.cuisineFilter.bind(this);
+    this.cuisineReciever = this.cuisineReciever.bind(this);
     this.cardFilterHandle = this.cardFilterHandle.bind(this);
   }
 
@@ -26,6 +26,30 @@ class MarketApp extends React.Component {
           stalls: data
         });
       });
+  }
+
+  submitReviewHandle(review) {
+    fetch("/api/reviews", {
+      method: post,
+      body: JSON.stringify(review),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(data => {
+      alert("your review has been posted");
+    });
+  }
+
+  cuisineReciever(cuisine) {
+    this.setState({
+      cuisine: cuisine
+    });
+  }
+
+  cardFilterHandle() {
+    this.setState({
+      filterCard: !this.state.filterCard
+    });
   }
 
   // DATA should == [
@@ -117,30 +141,6 @@ class MarketApp extends React.Component {
 
   // POST REVIEW should ==
   // {market_stall_id: 1,user_name: "Chris",rating: 5, review: "sublime"}
-
-  submitReviewHandle(review) {
-    fetch("/api/reviews", {
-      method: post,
-      body: JSON.stringify(review),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    }).then(data => {
-      alert("your review has been posted");
-    });
-  }
-
-  cuisineReciever(cuisine) {
-    this.setState({
-      cuisine: cuisine
-    });
-  }
-
-  cardFilterHandle() {
-    this.setState({
-      filterCard: !this.state.filterCard
-    });
-  }
 
   render() {
     return (
