@@ -5,15 +5,14 @@ class MarketApp extends React.Component {
   constructor() {
     super();
     this.state = {
-      stalls: [],
-      cuisine: "",
-      filterCard: false,
-      filterTopRated: false
+      stalls: []
     };
     this.stallFetch = this.stallFetch.bind(this);
-    this.submitReviewHandle = this.submitReviewHandle.bind(this);
-    this.cuisineReciever = this.cuisineReciever.bind(this);
-    this.cardFilterHandle = this.cardFilterHandle.bind(this);
+    this.receiveFilteredResults = this.receiveFilteredResults.bind(this);
+  }
+
+  componentDidMount() {
+    this.stallFetch();
   }
 
   stallFetch() {
@@ -28,27 +27,9 @@ class MarketApp extends React.Component {
       });
   }
 
-  submitReviewHandle(review) {
-    fetch("/api/reviews", {
-      method: post,
-      body: JSON.stringify(review),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    }).then(data => {
-      alert("your review has been posted");
-    });
-  }
-
-  cuisineReciever(cuisine) {
+  receiveFilteredResults(filteredStalls) {
     this.setState({
-      cuisine: cuisine
-    });
-  }
-
-  cardFilterHandle() {
-    this.setState({
-      filterCard: !this.state.filterCard
+      data: filteredStalls
     });
   }
 
@@ -58,11 +39,14 @@ class MarketApp extends React.Component {
   render() {
     return (
       <div>
-        <Stores
+        {/* <Stalls
           stalls={this.state.stalls}
-          reviewReciever={this.submitReviewHandle}
+          reviewReceiver={this.submitReviewHandle}
+        /> */}
+        <Filter
+          stalls={this.state.stalls}
+          filteredResultsReceiver={this.receiveFilteredResults}
         />
-        <Filter cuisine={this.cuisineFilter} cardFilter={this.cardFilter} />
       </div>
     );
   }

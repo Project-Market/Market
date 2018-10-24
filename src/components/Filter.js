@@ -1,14 +1,18 @@
 import React from "react";
 
+//filter stall results in filter, pass them back to MarketApp
+
 class Filter extends React.Component {
   constructor() {
     super();
     this.state = {
       cuisine: "",
-      cardFilter: false
+      cardFilter: false,
+      filteredStalls: [],
+      stalls: this.props.stalls
     };
     this.cuisineSelectHandle = this.cuisineSelectHandle.bind(this);
-    this.cardFilterHandle = this.cardFilterHandle.bind(this);
+    this.filterResultsCuisine = this.filterResultsCuisine.bind(this);
   }
 
   cuisineSelectHandle(event) {
@@ -16,23 +20,36 @@ class Filter extends React.Component {
       {
         cuisine: event.target.value
       },
-      this.props.cuisine(this.state.cuisine)
+      filterResultsCuisine()
     );
   }
 
-  cardFilterHandle() {
-    this.props.cardFilter();
+  filterResultsCuisine() {
+    cuisine = this.state.cuisine;
+    card = this.state.cardFilter;
+    if (cuisine.length !== 0) {
+      filteredByCuisine = this.state.stalls.filter(stall => {
+        if (stall.category == cuisine) return stall;
+      });
+      return filteredByCuisine;
+    }
+    this.setState(
+      {
+        filteredStalls: filteredByCuisine
+      },
+      this.props.filteredresultsReceiver(this.state.filteredResults)
+    );
   }
 
   render() {
     return (
       <div className="filter">
         <form className="filter-form">
-          <select name="Cuisine">
-            <option onChange={this.cuisineSelectHandle} value="American" />
-            <option onChange={this.cuisineSelectHandle} value="Burger" />
-            <option onChange={this.cuisineSelectHandle} value="Indian" />
-            <option onChange={this.cuisineSelectHandle} value="Mexican" />
+          <select name="Cuisine" onChange={this.cuisineSelectHandle}>
+            <option value="american" />
+            <option value="burger" />
+            <option value="asian" />
+            <option value="mexican" />
           </select>
 
           <input
