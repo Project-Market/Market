@@ -62,3 +62,5 @@ INSERT INTO market_stall VALUES (6, 'Burrito Brothers', 5, '/static/img/7.jpg', 
 ALTER SEQUENCE market_stall_id_seq RESTART WITH 7 INCREMENT BY 1;
 
 INSERT INTO dish VALUES(1,0,'chicken and waffles',6.00,'fried chicken with sweet waffles')
+INSERT INTO dish VALUES(2,2,'Philly CheeseCake',7.00,'Steak topped with cheese in a crisp bun')
+INSERT INTO dish VALUES(3,3,'Orea MilkShake',4.00,'Oreo crumbles mixed into a smooth milkshake')
