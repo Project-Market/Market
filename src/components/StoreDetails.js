@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/StoreDetails.scss";
 import cx from "classnames";
-import Reviews from './Reviews';
+import Reviews from "./Reviews";
 
 class StoreDetails extends React.Component {
   constructor() {
@@ -10,6 +10,7 @@ class StoreDetails extends React.Component {
       dishes: [],
       show: false
     };
+    this.closeDetails = this.closeDetails.bind(this);
   }
 
   fetchDishes() {
@@ -24,6 +25,10 @@ class StoreDetails extends React.Component {
       });
   }
 
+  closeDetails() {
+    this.props.clickStallMore();
+  }
+
   componentDidMount() {
     this.fetchDishes();
   }
@@ -34,7 +39,7 @@ class StoreDetails extends React.Component {
         {this.state.dishes.map(dish => {
           return (
             <div key={dish.id}>
-            <div onClick={this.clickStallMore}>X</div>
+              <div onClick={this.closeDetails}>X</div>
               <p>
                 dish title:
                 {dish.dish_title}
@@ -51,7 +56,10 @@ class StoreDetails extends React.Component {
             </div>
           );
         })}
-          <Reviews stall_id={this.props.stall_id} average_rating={this.props.stall.average_rating}/>
+        <Reviews
+          stall_id={this.props.stall_id}
+          average_rating={this.props.stall.average_rating}
+        />
       </div>
     );
   }
