@@ -49,7 +49,6 @@ class MarketApp extends React.Component {
           stalls={this.state.stalls}
           filteredStalls={this.state.filteredStalls}
         />
-
       </div>
     );
   }
