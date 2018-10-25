@@ -84,6 +84,7 @@ class Filter extends React.Component {
           value={selectedCuisine}
           onChange={this.cuisineSelectHandle}
           options={options}
+          placeholder="Select a cuisine"
         />
 
         <input
