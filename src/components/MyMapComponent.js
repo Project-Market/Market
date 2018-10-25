@@ -17,7 +17,7 @@ const MyMapComponent = compose(
     googleMapURL: `https://maps.googleapis.com/maps/api/js?key=AIzaSyAMzOxPMWZ48_HxfwIoeLu6O0zpNmK2f6U&v=3.exp&libraries=geometry,drawing,places`,
     loadingElement: <div style={{ height: `100%` }} />,
 
-    containerElement: <div style={{ height: `100px`}} />,
+    containerElement: <div style={{ height: `40vh`}} />,
 
     mapElement: <div style={{ height: `100%` }} />,
 
@@ -34,7 +34,7 @@ const MyMapComponent = compose(
     >
       {props.marketInfo.map(market => {
 
-      return  <SingleMarker market={market}/>
+      return  <SingleMarker showMarketDetails={props.showMarketDetails} market={market}/>
       })}
     </GoogleMap>
 

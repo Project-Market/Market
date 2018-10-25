@@ -11,7 +11,7 @@ class Landing extends React.Component {
     render() {
       return (
         <div className="landing">
-         <LandingMap/>
+         <LandingMap showMarketDetails={this.props.showMarketDetails} />
         </div>
       );
     }
