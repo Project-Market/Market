@@ -15,8 +15,7 @@ class Stalls extends React.PureComponent {
   }
 
   clickStallMore(id) {
-    this.setState({ switcher: !this.state.switcher, stallid: id }, () =>
-      console.log(this.state)
+    this.setState({ switcher: !this.state.switcher, stallid: id }
     );
   }
 
@@ -34,13 +33,13 @@ class Stalls extends React.PureComponent {
         <StoreDetails
           stall={this.props.stalls[this.state.stallid]}
           stall_id={this.state.stallid}
-          switcher={switcher} 
+          switcher={switcher}
         />
 
       );
     } else {
       return (
-        
+
         <ul className={stallswitch} id="stalls">
         <Filter
         filteredStalls={this.state.filteredStalls}
@@ -48,10 +47,10 @@ class Stalls extends React.PureComponent {
         filteredResultsReceiver={this.receiveFilteredResults}
       />
           {keys.map((stall, index) => {
-              console.log(stall)
+            
             return (
               <Stall
-              
+
                 key={index}
                 stall={stall}
                 switcher={switcher}

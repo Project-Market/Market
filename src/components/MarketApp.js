@@ -1,5 +1,7 @@
 import React from "react";
 import Stalls from "./Stalls";
+import Map from "./Map";
+import Nav from "./Nav";
 
 class MarketApp extends React.Component {
   constructor() {
@@ -45,6 +47,8 @@ class MarketApp extends React.Component {
   render() {
     return (
       <div>
+        <Nav />
+        <Map />
         <Stalls
           stalls={this.state.stalls}
           filteredStalls={this.state.filteredStalls}
