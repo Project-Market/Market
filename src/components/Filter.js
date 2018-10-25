@@ -1,6 +1,5 @@
 import React from "react";
 import Select from "react-select";
-//filter stall results in filter, pass them back to MarketApp
 
 const options = [
   { value: "american", label: "American" },
@@ -21,6 +20,7 @@ class Filter extends React.Component {
     this.filterResultsCuisine = this.filterResultsCuisine.bind(this);
     this.cardClick = this.cardClick.bind(this);
     this.cardFilterHandle = this.cardFilterHandle.bind(this);
+    this.ratingClick = this.ratingClick.bind(this);
   }
 
   cardClick() {
@@ -30,6 +30,10 @@ class Filter extends React.Component {
       },
       () => this.filterResultsCuisine()
     );
+  }
+
+  ratingClick() {
+    this.props.desRatingFilter();
   }
 
   cuisineSelectHandle(selectedCuisine) {
@@ -87,10 +91,20 @@ class Filter extends React.Component {
           type="checkbox"
           name="card"
           value="card"
-          onClick={this.cardClick}
+          onChange={this.cardClick}
         />
 
         <label for="card">Accepts Card</label>
+
+        <input
+          className="rating-checkbox"
+          type="checkbox"
+          name="rating"
+          value="rating"
+          onChange={this.ratingClick}
+        />
+
+        <label for="rating">Sort by rating</label>
       </div>
     );
   }
