@@ -7,12 +7,12 @@ class MarketApp extends React.Component {
     this.state = {
       stalls: [],
       filteredStalls: [],
-      ratingFilter: false
+      desRatingFilter: false
     };
     this.stallFetch = this.stallFetch.bind(this);
     this.receiveFilteredResults = this.receiveFilteredResults.bind(this);
-    this.receiveRatingFilter = this.receiveRatingFilter.bind(this);
-    this.ratingFilterHandle = this.ratingFilterHandle.bind(this);
+    this.receiveDesRatingFilter = this.receiveDesRatingFilter.bind(this);
+    this.desRatingFilterHandle = this.desRatingFilterHandle.bind(this);
   }
 
   componentDidMount() {
@@ -32,10 +32,9 @@ class MarketApp extends React.Component {
       });
   }
 
-  ratingFilterHandle(array) {
-    console.log(this.state.ratingFilter);
+  desRatingFilterHandle(array) {
     let newArray = [...array];
-    if (this.state.ratingFilter == true) {
+    if (this.state.desRatingFilter == true) {
       newArray.sort(function(a, b) {
         return b.average_rating - a.average_rating;
       });
@@ -48,12 +47,12 @@ class MarketApp extends React.Component {
     }
   }
 
-  receiveRatingFilter() {
+  receiveDesRatingFilter() {
     this.setState(
       {
-        ratingFilter: !this.state.ratingFilter
+        desRatingFilter: !this.state.desRatingFilter
       },
-      () => this.ratingFilterHandle(this.state.filteredStalls)
+      () => this.desRatingFilterHandle(this.state.filteredStalls)
     );
   }
 
@@ -81,7 +80,7 @@ class MarketApp extends React.Component {
           filteredStalls={this.state.filteredStalls}
           stalls={this.state.stalls}
           filteredResultsReceiver={this.receiveFilteredResults}
-          ratingFilter={this.receiveRatingFilter}
+          desRatingFilter={this.receiveDesRatingFilter}
         />
       </div>
     );

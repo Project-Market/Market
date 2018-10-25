@@ -14,8 +14,7 @@ class Filter extends React.Component {
     super(props);
     this.state = {
       cuisine: "",
-      cardFilter: false,
-      ratingFilter: false
+      cardFilter: false
     };
     this.cuisineSelectHandle = this.cuisineSelectHandle.bind(this);
     this.filterResultsCuisine = this.filterResultsCuisine.bind(this);
@@ -34,7 +33,7 @@ class Filter extends React.Component {
   }
 
   ratingClick() {
-    this.props.ratingFilter();
+    this.props.desRatingFilter();
   }
 
   cuisineSelectHandle(selectedCuisine) {
@@ -52,11 +51,6 @@ class Filter extends React.Component {
       let filteredByCard = this.props.stalls;
       if (this.state.cardFilter == true) {
         this.cardFilterHandle(filteredByCard);
-        // if (this.state.ratingFilter == true) {
-        //   this.ratingFilterHandle(filteredByCard);
-        // } else {
-        //   this.ratingFilterHandle(filteredByCard);
-        // }
       } else this.props.filteredResultsReceiver(filteredByCard);
     } else {
       let filteredByCuisineArray = this.props.stalls.filter(stall => {
