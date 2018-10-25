@@ -14,10 +14,11 @@ class SingleStoreMarker extends React.Component{
     super();
     this.state={
       isOpen:false,
-      showStoreDetails: false
+      showStallDetails: false
     }
 
     this.onToggleOpen = this.onToggleOpen.bind(this);
+    this.showStallDetails = this.showStallDetails.bind(this)
   }
 
     onToggleOpen(){
@@ -27,9 +28,7 @@ class SingleStoreMarker extends React.Component{
     }
 
     showStallDetails(){
-      this.setState({
-        showStallDetails: !this.state.showStoreDetails
-      })
+      this.props.showStallDetails(this.props.stall.id)
     }
 
   render(){
@@ -54,7 +53,6 @@ class SingleStoreMarker extends React.Component{
     </div>
     </InfoWindow>}
     </Marker>
-   {this.state.showStallDetails && <StoreDetails  stall_id={this.props.stall.id}/>}
     </div>
   )
   }
