@@ -1,10 +1,7 @@
 import React from "react";
 import Filter from "./Filter";
 import Stalls from "./Stalls";
-import Map from "./Map";
 
-
-import Nav from "./Nav";
 class MarketApp extends React.Component {
   constructor() {
     super();
@@ -52,8 +49,6 @@ class MarketApp extends React.Component {
   render() {
     return (
       <div>
-        <Nav />
-        <Map />
 
         <Filter
           filteredStalls={this.state.filteredStalls}

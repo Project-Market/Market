@@ -32,9 +32,9 @@ const MyMapComponent = compose(
       defaultZoom={16}
       defaultCenter={props.center}
     >
-      {props.markerLocations.map(location => {
+      {props.marketInfo.map(market => {
 
-      return  <SingleMarker location={location}/>
+      return  <SingleMarker market={market}/>
       })}
     </GoogleMap>
 
