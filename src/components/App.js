@@ -15,8 +15,8 @@ class App extends React.Component {
 
     return (
     <div>
-        <Landing />
-          <MarketApp />
+          <Landing />
+          {/* <MarketApp /> */}
       </div>
     );
   }
