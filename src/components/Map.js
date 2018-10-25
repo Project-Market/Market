@@ -66,26 +66,24 @@ class Map extends React.PureComponent {
   render() {
 
     return (
-
-
-            <div>
-              {this.state.marketStallInfo ? 
-              <div>
-              {this.state.showStallDetails ? <StoreDetails
+      <div>
+        {this.state.marketStallInfo ? 
+          <div>
+            {this.state.showStallDetails ? <StoreDetails
               clickStallMore={this.clickStallMore}
               stall={this.state.marketStallInfo[this.state.storeId]}
               stall_id={this.state.storeId}
-              /> : 
-          <MyMapDesktop showStallDetails={this.showStallDetails}
-          marketStallInfo={this.state.marketStallInfo}
-          isMarkerShown={this.state.isMarkerShown}
-          onMarkerClick={this.handleMarkerClick}
-          />
-          
-              }
-              </div>
-            : null }
-          </div>
+            /> : 
+            <MyMapDesktop showStallDetails={this.showStallDetails}
+            marketStallInfo={this.state.marketStallInfo}
+            isMarkerShown={this.state.isMarkerShown}
+            onMarkerClick={this.handleMarkerClick}
+            hideEverythingElse={this.props.hideEverythingElse}
+            />
+        }
+        </div>
+      : null }
+    </div>
           
     );
   }
