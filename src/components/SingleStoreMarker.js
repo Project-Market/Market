@@ -1,5 +1,5 @@
 import React from 'react';
-
+import StoreDetails from './StoreDetails'
 import {
   withScriptjs,
   withGoogleMap,
@@ -13,7 +13,8 @@ class SingleStoreMarker extends React.Component{
   constructor(){
     super();
     this.state={
-      isOpen:false
+      isOpen:false,
+      showStoreDetails: false
     }
 
     this.onToggleOpen = this.onToggleOpen.bind(this);
@@ -25,9 +26,16 @@ class SingleStoreMarker extends React.Component{
       })
     }
 
+    showStallDetails(){
+      this.setState({
+        showStallDetails: !this.state.showStoreDetails
+      })
+    }
+
   render(){
 
     return (
+      <div>
     <Marker
     position={{ lat: Number(this.props.stall.lat), lng: Number(this.props.stall.lang)}}
     onClick={this.onToggleOpen}
@@ -37,7 +45,7 @@ class SingleStoreMarker extends React.Component{
     onCloseClick={this.onToggleOpen}
     options={{ closeBoxURL: ``, enableEventPropagation: true }}
     >
-    <div style={{ backgroundColor: `#F5F5F5`, opacity: 0.75, padding: `12px` }}>
+    <div onClick={this.showStallDetails} style={{ backgroundColor: `#F5F5F5`, opacity: 0.75, padding: `12px` }}>
       <div style={{ fontSize: `16px`, fontColor: `#08233B` }}>
       <h4>{this.props.stall.title}</h4>
       <p>{this.props.stall.category}</p>
@@ -46,6 +54,8 @@ class SingleStoreMarker extends React.Component{
     </div>
     </InfoWindow>}
     </Marker>
+   {this.state.showStallDetails && <StoreDetails  stall_id={this.props.stall.id}/>}
+    </div>
   )
   }
 }
