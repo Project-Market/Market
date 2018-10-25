@@ -6,10 +6,13 @@ class MarketApp extends React.Component {
     super();
     this.state = {
       stalls: [],
-      filteredStalls: []
+      filteredStalls: [],
+      ratingFilter: false
     };
     this.stallFetch = this.stallFetch.bind(this);
     this.receiveFilteredResults = this.receiveFilteredResults.bind(this);
+    this.receiveRatingFilter = this.receiveRatingFilter.bind(this);
+    this.ratingFilterHandle = this.ratingFilterHandle.bind(this);
   }
 
   componentDidMount() {
@@ -29,12 +32,37 @@ class MarketApp extends React.Component {
       });
   }
 
+  ratingFilterHandle(array) {
+    console.log(this.state.ratingFilter);
+    let newArray = [...array];
+    if (this.state.ratingFilter == true) {
+      newArray.sort(function(a, b) {
+        return b.average_rating - a.average_rating;
+      });
+      this.receiveFilteredResults(newArray);
+    } else {
+      newArray.sort(function(a, b) {
+        return a.id - b.id;
+      });
+      this.receiveFilteredResults(newArray);
+    }
+  }
+
+  receiveRatingFilter() {
+    this.setState(
+      {
+        ratingFilter: !this.state.ratingFilter
+      },
+      () => this.ratingFilterHandle(this.state.filteredStalls)
+    );
+  }
+
   receiveFilteredResults(filteredStalls) {
-    console.log(filteredStalls);
     this.setState({
       filteredStalls: filteredStalls
     });
   }
+
   componentDidMount() {
     this.stallFetch();
   }
@@ -53,6 +81,7 @@ class MarketApp extends React.Component {
           filteredStalls={this.state.filteredStalls}
           stalls={this.state.stalls}
           filteredResultsReceiver={this.receiveFilteredResults}
+          ratingFilter={this.receiveRatingFilter}
         />
       </div>
     );

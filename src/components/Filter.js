@@ -22,7 +22,6 @@ class Filter extends React.Component {
     this.cardClick = this.cardClick.bind(this);
     this.cardFilterHandle = this.cardFilterHandle.bind(this);
     this.ratingClick = this.ratingClick.bind(this);
-    this.ratingFilterHandle = this.ratingFilterHandle.bind(this);
   }
 
   cardClick() {
@@ -35,12 +34,7 @@ class Filter extends React.Component {
   }
 
   ratingClick() {
-    this.setState(
-      {
-        ratingFilter: !this.state.ratingFilter
-      },
-      () => this.ratingFilterHandle(this.props.stalls)
-    );
+    this.props.ratingFilter();
   }
 
   cuisineSelectHandle(selectedCuisine) {
@@ -58,6 +52,11 @@ class Filter extends React.Component {
       let filteredByCard = this.props.stalls;
       if (this.state.cardFilter == true) {
         this.cardFilterHandle(filteredByCard);
+        // if (this.state.ratingFilter == true) {
+        //   this.ratingFilterHandle(filteredByCard);
+        // } else {
+        //   this.ratingFilterHandle(filteredByCard);
+        // }
       } else this.props.filteredResultsReceiver(filteredByCard);
     } else {
       let filteredByCuisineArray = this.props.stalls.filter(stall => {
@@ -83,16 +82,6 @@ class Filter extends React.Component {
     }
   }
 
-  ratingFilterHandle(array) {
-    let newArray = array;
-    if (this.state.ratingFilter == true) {
-      newArray.sort(function(a, b) {
-        return b.average_rating - a.average_rating;
-      });
-      this.props.filteredResultsReceiver(newArray);
-    }
-  }
-
   render() {
     const { selectedCuisine } = this.state.cuisine;
     return (
@@ -108,7 +97,7 @@ class Filter extends React.Component {
           type="checkbox"
           name="card"
           value="card"
-          onClick={this.cardClick}
+          onChange={this.cardClick}
         />
 
         <label for="card">Accepts Card</label>
@@ -118,7 +107,7 @@ class Filter extends React.Component {
           type="checkbox"
           name="rating"
           value="rating"
-          onClick={this.ratingClick}
+          onChange={this.ratingClick}
         />
 
         <label for="rating">Sort by rating</label>
