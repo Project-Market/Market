@@ -1,5 +1,7 @@
 import React from "react";
-import SingleStoreMarker from './SingleStoreMarker'
+import SingleStoreMarker from './SingleStoreMarker';
+import "../styles/MyMapDesktop.scss";
+
 
 import { compose, withProps, withStateHandlers } from "recompose";
 import {

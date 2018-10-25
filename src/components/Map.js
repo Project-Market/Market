@@ -1,7 +1,7 @@
 import React from "react";
 import MyMapDesktop from "./MyMapDesktop";
 import StoreDetails from './StoreDetails'
-import "../styles/MyMapDesktop.scss";
+import "../styles/Map.scss";
 class Map extends React.PureComponent {
   constructor() {
     super();
@@ -66,25 +66,29 @@ class Map extends React.PureComponent {
   render() {
 
     return (
-      <div>
-        {this.state.marketStallInfo ? 
-          <div>
+      <div  >
+        {this.state.marketStallInfo ?
+          <div className={this.props.name}>
             {this.state.showStallDetails ? <StoreDetails
               clickStallMore={this.clickStallMore}
               stall={this.state.marketStallInfo[this.state.storeId]}
               stall_id={this.state.storeId}
-            /> : 
-            <MyMapDesktop showStallDetails={this.showStallDetails}
+            /> :
+
+            <MyMapDesktop
+
+              showStallDetails={this.showStallDetails}
             marketStallInfo={this.state.marketStallInfo}
             isMarkerShown={this.state.isMarkerShown}
             onMarkerClick={this.handleMarkerClick}
             hideEverythingElse={this.props.hideEverythingElse}
             />
+
         }
         </div>
       : null }
     </div>
-          
+
     );
   }
 }
