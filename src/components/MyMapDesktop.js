@@ -29,7 +29,7 @@ const MyMapDesktop = compose(
     >
       {props.marketStallInfo.map(stall => {
         return (
-          <SingleStoreMarker stall={stall}
+          <SingleStoreMarker showStallDetails={props.showStallDetails} stall={stall}
           />
         );
       })}

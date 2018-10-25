@@ -1,17 +1,22 @@
 import React from "react";
 import MyMapDesktop from "./MyMapDesktop";
+import StoreDetails from './StoreDetails'
 import "../styles/MyMapDesktop.scss";
 class Map extends React.PureComponent {
   constructor() {
     super();
     this.state = {
       isMarkerShown: false,
-      marketStallInfo:[]
+      marketStallInfo:[],
+      showStallDetails: false,
+      storeId: null
     };
 
     this.delayedShowMarker = this.delayedShowMarker.bind(this);
     this.handleMarkerClick = this.handleMarkerClick.bind(this);
     this.fetchMarketInfo = this.fetchMarketInfo.bind(this);
+    this.showStallDetails = this.showStallDetails.bind(this);
+    this.clickStallMore = this.clickStallMore.bind(this)
   }
 
   componentDidMount() {
@@ -41,8 +46,21 @@ class Map extends React.PureComponent {
     .catch(error => {error: error.message})
   }
 
+  showStallDetails(id){
+      this.setState({
+        showStallDetails: !this.state.showStallDetails,
+        storeId: Number(id)
+      })
+  }
+
   componentDidMount(){
     this.fetchMarketInfo()
+  }
+
+  clickStallMore(){
+    this.setState({
+      showStallDetails: !this.state.showStallDetails
+    })
   }
 
   render() {
@@ -50,15 +68,25 @@ class Map extends React.PureComponent {
     return (
 
 
-
-          <MyMapDesktop
+            <div>
+              {this.state.marketStallInfo ? 
+              <div>
+              {this.state.showStallDetails ? <StoreDetails
+              clickStallMore={this.clickStallMore}
+              stall={this.state.marketStallInfo[this.state.storeId]}
+              stall_id={this.state.storeId}
+              /> : 
+          <MyMapDesktop showStallDetails={this.showStallDetails}
           marketStallInfo={this.state.marketStallInfo}
           isMarkerShown={this.state.isMarkerShown}
           onMarkerClick={this.handleMarkerClick}
           />
-
-
-
+          
+              }
+              </div>
+            : null }
+          </div>
+          
     );
   }
 }
