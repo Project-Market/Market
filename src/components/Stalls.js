@@ -9,11 +9,15 @@ class Stalls extends React.PureComponent {
   constructor() {
     super();
     this.clickStallMore = this.clickStallMore.bind(this);
-    this.state = { switcher: false, stallid: 0 };
+    this.state = {
+      switcher: false,
+      stallid: 0
+    };
   }
 
   clickStallMore(id) {
     this.setState({ switcher: !this.state.switcher, stallid: id });
+    this.props.hideBackground();
   }
 
   render() {
@@ -22,17 +26,16 @@ class Stalls extends React.PureComponent {
       { show_stalls: !this.state.switcher },
       { hide_stalls: this.state.switcher }
     );
-    const switcher = cx(
-      { hide_dishes: this.props.switcher },
-      { show_dishes: !this.props.switcher }
-    );
+    // const switcher = cx(
+    //   { hide_dishes: this.props.switcher },
+    //   { show_dishes: !this.props.switcher }
+    // );
 
     if (!this.state.switcher === false) {
       return (
         <StoreDetails
           stall={this.props.stalls[this.state.stallid]}
           stall_id={this.state.stallid}
-          switcher={switcher}
           clickStallMore={this.clickStallMore}
         />
       );
@@ -44,7 +47,6 @@ class Stalls extends React.PureComponent {
               <Stall
                 key={index}
                 stall={stall}
-                switcher={switcher}
                 clickStallMore={this.clickStallMore}
               />
             );
