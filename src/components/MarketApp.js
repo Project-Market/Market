@@ -1,5 +1,6 @@
 import React from "react";
 import Stalls from "./Stalls";
+
 class MarketApp extends React.Component {
   constructor() {
     super();
@@ -48,7 +49,6 @@ class MarketApp extends React.Component {
           stalls={this.state.stalls}
           filteredStalls={this.state.filteredStalls}
         />
-        
       </div>
     );
   }

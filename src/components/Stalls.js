@@ -1,5 +1,6 @@
 import React from "react";
 import Stall from "./Stall";
+
 import Filter from "./Filter";
 
 import "../styles/Stalls.scss";
