@@ -1,6 +1,6 @@
 import React from "react";
 import Stall from "./Stall";
-
+import "../styles/Stalls.scss";
 class Stalls extends React.PureComponent {
   constructor() {
 
