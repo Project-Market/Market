@@ -1,6 +1,8 @@
 import React from "react";
-import Filter from "./Filter";
 import Stalls from "./Stalls";
+import Map from "./Map";
+import Nav from "./Nav";
+
 class MarketApp extends React.Component {
   constructor() {
     super();
@@ -66,22 +68,28 @@ class MarketApp extends React.Component {
     this.stallFetch();
   }
 
+
   // POST REVIEW should ==
   // {market_stall_id: 1,user_name: "Chris",rating: 5, review: "sublime"}
+
 
   render() {
     return (
       <div>
+        <Nav />
+        <Map />
         <Stalls
           stalls={this.state.stalls}
           filteredStalls={this.state.filteredStalls}
         />
+
         <Filter
           filteredStalls={this.state.filteredStalls}
           stalls={this.state.stalls}
           filteredResultsReceiver={this.receiveFilteredResults}
           desRatingFilter={this.receiveDesRatingFilter}
         />
+
       </div>
     );
   }

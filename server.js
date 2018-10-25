@@ -35,7 +35,8 @@ group by market_stall.id`
         const ratings = response;
         storesInfo.map(store => {
           const averageRating = ratings.filter(item => item.id == store.id);
-          store.average_rating = averageRating[0].average;
+          store.average_rating = averageRating[0] ? averageRating[0].average : 0;
+
           return store;
         });
         return res.json(storesInfo);
@@ -67,6 +68,13 @@ app.get("/api/dish", function(req, res) {
       res.json({ error: error.message });
     });
 });
+
+//get market information
+app.get("/api/market", function(req, res){
+  db.any(`SELECT * FROM market`)
+  .then(data => res.json(data))
+  .catch(error => res.json({ error: error.message }))
+})
 
 app.get("/api/market_stall/with_dish", function(req, res) {
   db.any(
