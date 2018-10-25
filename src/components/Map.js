@@ -6,7 +6,7 @@ class Map extends React.PureComponent {
     super();
     this.state = {
       isMarkerShown: false,
-      marketInfo:[]
+      marketStallInfo:[]
     };
 
     this.delayedShowMarker = this.delayedShowMarker.bind(this);
@@ -31,11 +31,11 @@ class Map extends React.PureComponent {
 
   fetchMarketInfo(){
 
-    fetch("/api/market")
+    fetch("/api/market_stall")
     .then(response=>response.json())
     .then(markets => {
       this.setState({
-        marketInfo: markets
+        marketStallInfo: markets
       })
     })
     .catch(error => {error: error.message})
@@ -52,23 +52,7 @@ class Map extends React.PureComponent {
 
 
           <MyMapDesktop
-          markerLocations={[
-          { lat: 51.520130, lng: 51.520130},
-          { lat: 51.520238, lng: -0.109688},
-          { lat:51.520306,  lng: -0.109454},
-          { lat: 51.519989, lng: -0.109347 },
-          { lat: 51.519810, lng: -0.109283},
-          { lat: 51.519536, lng: -0.109176 },
-          { lat: 51.519864, lng: -0.109308 },
-          { lat: 51.520556, lng: -0.109568 },
-          { lat: 51.520643, lng: -0.109607 },
-          { lat: 51.519905, lng: -0.109323}
-
-
-
-
-          // { lat: 51.520131, lng: -0.109311  }
-         ]}
+          marketStallInfo={this.state.marketStallInfo}
           isMarkerShown={this.state.isMarkerShown}
           onMarkerClick={this.handleMarkerClick}
           />

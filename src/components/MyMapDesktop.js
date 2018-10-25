@@ -1,11 +1,13 @@
 import React from "react";
+import SingleStoreMarker from './SingleStoreMarker'
 
-import { compose, withProps } from "recompose";
+import { compose, withProps, withStateHandlers } from "recompose";
 import {
   withScriptjs,
   withGoogleMap,
   GoogleMap,
-  Marker
+  Marker,
+  InfoWindow
 } from "react-google-maps";
 
 const MyMapDesktop = compose(
@@ -25,12 +27,9 @@ const MyMapDesktop = compose(
       defaultZoom={19}
       defaultCenter={{ lat: 51.520131, lng: -0.109311 }}
     >
-      {props.markerLocations.map(location => {
+      {props.marketStallInfo.map(stall => {
         return (
-          <Marker
-            key={`${location.lat}${location.lng}`}
-            position={{ lat: location.lat, lng: location.lng }}
-            onClick={props.onMarkerClick}
+          <SingleStoreMarker stall={stall}
           />
         );
       })}
