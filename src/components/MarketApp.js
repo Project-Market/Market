@@ -1,5 +1,4 @@
 import React from "react";
-import Filter from "./Filter";
 import Stalls from "./Stalls";
 
 class MarketApp extends React.Component {
@@ -43,23 +42,13 @@ class MarketApp extends React.Component {
 
   cuisineReciever(filteredStalls) {}
 
-  // POST REVIEW should ==
-  // {market_stall_id: 1,user_name: "Chris",rating: 5, review: "sublime"}
-
   render() {
     return (
       <div>
-         
-         <Filter
-          filteredStalls={this.state.filteredStalls}
-          stalls={this.state.stalls}
-          filteredResultsReceiver={this.receiveFilteredResults}
-        />
         <Stalls
           stalls={this.state.stalls}
           filteredStalls={this.state.filteredStalls}
         />
-       
       </div>
     );
   }
