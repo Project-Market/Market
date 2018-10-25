@@ -53,7 +53,7 @@ class SingleMarker extends React.Component{
       </div>
     </div>
     </InfoWindow>}
-    </Marker>
+  </Marker>
     {this.state.showMarketDetails && <MarketApp/>}
     </div>
   )
