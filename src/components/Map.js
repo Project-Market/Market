@@ -60,7 +60,7 @@ class Map extends React.PureComponent {
   clickStallMore(){
     this.setState({
       showStallDetails: !this.state.showStallDetails
-    })
+    }, () => this.props.hideEverythingElse())
   }
 
   render() {
