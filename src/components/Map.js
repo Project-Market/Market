@@ -7,11 +7,13 @@ class Map extends React.PureComponent {
   constructor() {
     super();
     this.state = {
-      isMarkerShown: false
+      isMarkerShown: false,
+      marketInfo:[]
     };
 
     this.delayedShowMarker = this.delayedShowMarker.bind(this);
     this.handleMarkerClick = this.handleMarkerClick.bind(this);
+    this.fetchMarketInfo = this.fetchMarketInfo.bind(this);
   }
 
   componentDidMount() {
@@ -29,17 +31,30 @@ class Map extends React.PureComponent {
     this.delayedShowMarker();
   }
 
+  fetchMarketInfo(){
+
+    fetch("/api/market")
+    .then(response=>response.json())
+    .then(markets => {
+      this.setState({
+        marketInfo: markets
+      },()=>console.log(this.state.marketInfo))
+    })
+    .catch(error => {error: error.message})
+  }
+
+  componentDidMount(){
+    this.fetchMarketInfo()
+  }
+
   render() {
 
     return (
       <div>
           <div className='mobile_map'>
       <MyMapComponent
-        markerLocations={[
-          // { lat: 51.5201611, lng: -0.1094093 },
-          // { lat: 51.5258009, lng: -0.1093418 },
-          // { lat: 51.50544, lng: -0.0910606 }
-        ]}
+        marketInfo={this.state.marketInfo}
+        stalls={this.props.stalls}
         isMarkerShown={this.state.isMarkerShown}
         onMarkerClick={this.handleMarkerClick}
       />
@@ -57,18 +72,18 @@ class Map extends React.PureComponent {
           { lat: 51.520556, lng: -0.109568 },
           { lat: 51.520643, lng: -0.109607 },
           { lat: 51.519905, lng: -0.109323}
-         
-          
 
-          
+
+
+
           // { lat: 51.520131, lng: -0.109311  }
          ]}
           isMarkerShown={this.state.isMarkerShown}
           onMarkerClick={this.handleMarkerClick}
           />
        </div>
-      </div> 
-      
+      </div>
+
     );
   }
 }
