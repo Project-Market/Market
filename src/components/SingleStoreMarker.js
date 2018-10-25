@@ -29,6 +29,7 @@ class SingleStoreMarker extends React.Component{
 
     showStallDetails(){
       this.props.showStallDetails(this.props.stall.id)
+      this.props.hideEverythingElse()
     }
 
   render(){
