@@ -2,11 +2,11 @@ import React from "react";
 import Select from "react-select";
 
 const options = [
-  { value: "american", label: "American" },
-  { value: "asian", label: "Asian" },
-  { value: "burger", label: "Burger" },
-  { value: "indian", label: "Indian" },
-  { value: "mexican", label: "Mexican" }
+  { value: "American", label: "American" },
+  { value: "Asian", label: "Asian" },
+  { value: "Burger", label: "Burger" },
+  { value: "Indian", label: "Indian" },
+  { value: "Mexican", label: "Mexican" }
 ];
 
 class Filter extends React.Component {
