@@ -10,16 +10,23 @@ class MarketApp extends React.Component {
     this.state = {
       stalls: [],
       filteredStalls: [],
-      desRatingFilter: false
+      desRatingFilter: false,
+      hidefilter: false
     };
     this.stallFetch = this.stallFetch.bind(this);
     this.receiveFilteredResults = this.receiveFilteredResults.bind(this);
     this.receiveDesRatingFilter = this.receiveDesRatingFilter.bind(this);
     this.desRatingFilterHandle = this.desRatingFilterHandle.bind(this);
+    this.hidefilter = this.hidefilter.bind(this);
+
   }
 
   componentDidMount() {
     this.stallFetch();
+  }
+
+  hidefilter(){
+this.setState({hidefilter:!this.state.hidefilter})
   }
 
   stallFetch() {
@@ -86,6 +93,7 @@ class MarketApp extends React.Component {
         <Stalls
           stalls={this.state.stalls}
           filteredStalls={this.state.filteredStalls}
+          hidefilter={this.hidefilter}
         />
       </div>
     );

@@ -36,10 +36,11 @@ class StoreDetails extends React.Component {
   render() {
     return (
       <div className={this.props.switcher}>
+      <div onClick={this.closeDetails}>X</div>
         {this.state.dishes.map(dish => {
           return (
             <div key={dish.id}>
-              <div onClick={this.closeDetails}>X</div>
+              
               <p>
                 dish title:
                 {dish.dish_title}
