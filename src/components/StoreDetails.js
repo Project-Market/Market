@@ -34,6 +34,7 @@ class StoreDetails extends React.Component {
         {this.state.dishes.map(dish => {
           return (
             <div key={dish.id}>
+            <div onClick={this.clickStallMore}>X</div>
               <p>
                 dish title:
                 {dish.dish_title}
