@@ -2,10 +2,16 @@ import React from "react";
 import Select from "react-select";
 
 const options = [
+  { value: "", label: "All" },
   { value: "American", label: "American" },
   { value: "Asian", label: "Asian" },
   { value: "Burger", label: "Burger" },
+  { value: "Chinese", label: "Chinese" },
+  { value: "European", label: "European" },
+  { value: "German", label: "German" },
   { value: "Indian", label: "Indian" },
+  { value: "Korean", label: "Korean" },
+  { value: "Lebanese", label: "Lebanese" },
   { value: "Mexican", label: "Mexican" }
 ];
 
@@ -84,6 +90,7 @@ class Filter extends React.Component {
           value={selectedCuisine}
           onChange={this.cuisineSelectHandle}
           options={options}
+          isClearable
           placeholder="Select a cuisine"
         />
 
