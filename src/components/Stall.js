@@ -24,12 +24,12 @@ class Stall extends React.Component {
         ? "This stall accepts payment by credit card"
         : "This stall only accepts payments in cash";
 
-    return (
-      <div className="stall__info hvr-forward">
+          return (
+        
+        <div  className="stall">
+        <img className="stall__image" src={this.props.stall.image}/>
         <h3>{this.props.stall.title}</h3>
-        <img className="stall__image" src={this.props.stall.image} />
-
-        <StarRatings
+        <StarRatings className="ratings"
           rating={Number(this.props.stall.average_rating)}
           starRatedColor="#0BBC62"
           numberOfStars={5}
@@ -37,8 +37,10 @@ class Stall extends React.Component {
           starDimension="20px"
           starSpacing="5px"
         />
-        <img src={cardlogo} alt={cartlogoalt} />
-        <h3>{this.props.stall.category}</h3>
+            <div className="stall__lowrow">
+            <h3>{this.props.stall.category}</h3>
+            <img className="stall__credit" src={cardlogo} alt={cartlogoalt}/>
+            </div>
         <button onClick={this.submitHandler}>more info</button>
       </div>
     );

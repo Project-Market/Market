@@ -1,13 +1,13 @@
 @import "defaults";
 
 
-@media screen and (min-width: 700px) {
-    .split{
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-    }
+// @media screen and (min-width: 700px) {
+//     .split{
+//         display: grid;
+//         grid-template-columns: 1fr 2fr;
+//     }
 
-    .split > *:first-child{
-        order: 2
-    }
-}
+//     .split > *:first-child{
+//         order: 2
+//     }
+// }
