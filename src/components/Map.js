@@ -1,17 +1,22 @@
 import React from "react";
 import MyMapDesktop from "./MyMapDesktop";
+import StoreDetails from './StoreDetails'
 import "../styles/MyMapDesktop.scss";
 class Map extends React.PureComponent {
   constructor() {
     super();
     this.state = {
       isMarkerShown: false,
-      marketInfo:[]
+      marketStallInfo:[],
+      showStallDetails: false,
+      storeId: null
     };
 
     this.delayedShowMarker = this.delayedShowMarker.bind(this);
     this.handleMarkerClick = this.handleMarkerClick.bind(this);
     this.fetchMarketInfo = this.fetchMarketInfo.bind(this);
+    this.showStallDetails = this.showStallDetails.bind(this);
+    this.clickStallMore = this.clickStallMore.bind(this)
   }
 
   componentDidMount() {
@@ -31,18 +36,31 @@ class Map extends React.PureComponent {
 
   fetchMarketInfo(){
 
-    fetch("/api/market")
+    fetch("/api/market_stall")
     .then(response=>response.json())
     .then(markets => {
       this.setState({
-        marketInfo: markets
+        marketStallInfo: markets
       })
     })
     .catch(error => {error: error.message})
   }
 
+  showStallDetails(id){
+      this.setState({
+        showStallDetails: !this.state.showStallDetails,
+        storeId: Number(id)
+      })
+  }
+
   componentDidMount(){
     this.fetchMarketInfo()
+  }
+
+  clickStallMore(){
+    this.setState({
+      showStallDetails: !this.state.showStallDetails
+    })
   }
 
   render() {
@@ -50,31 +68,25 @@ class Map extends React.PureComponent {
     return (
 
 
-
-          <MyMapDesktop
-          markerLocations={[
-          { lat: 51.520130, lng: 51.520130},
-          { lat: 51.520238, lng: -0.109688},
-          { lat:51.520306,  lng: -0.109454},
-          { lat: 51.519989, lng: -0.109347 },
-          { lat: 51.519810, lng: -0.109283},
-          { lat: 51.519536, lng: -0.109176 },
-          { lat: 51.519864, lng: -0.109308 },
-          { lat: 51.520556, lng: -0.109568 },
-          { lat: 51.520643, lng: -0.109607 },
-          { lat: 51.519905, lng: -0.109323}
-
-
-
-
-          // { lat: 51.520131, lng: -0.109311  }
-         ]}
+            <div>
+              {this.state.marketStallInfo ? 
+              <div>
+              {this.state.showStallDetails ? <StoreDetails
+              clickStallMore={this.clickStallMore}
+              stall={this.state.marketStallInfo[this.state.storeId]}
+              stall_id={this.state.storeId}
+              /> : 
+          <MyMapDesktop showStallDetails={this.showStallDetails}
+          marketStallInfo={this.state.marketStallInfo}
           isMarkerShown={this.state.isMarkerShown}
           onMarkerClick={this.handleMarkerClick}
           />
-
-
-
+          
+              }
+              </div>
+            : null }
+          </div>
+          
     );
   }
 }

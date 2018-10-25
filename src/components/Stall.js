@@ -4,26 +4,31 @@ import StarRatings from "react-star-ratings";
 import "../styles/Stall.scss";
 
 class Stall extends React.Component {
-    constructor() {
-        super();
-        this.submitHandler = this.submitHandler.bind(this);
-    }
+  constructor() {
+    super();
+    this.submitHandler = this.submitHandler.bind(this);
+  }
 
-    submitHandler(event) {
-        event.preventDefault();
-        this.props.clickStallMore(this.props.stall.id)
-    }
+  submitHandler(event) {
+    event.preventDefault();
+    this.props.clickStallMore(this.props.stall.id);
+  }
 
-      render() {
-        let cardlogo = this.props.stall.takes_card === true ? "/static/img/logos/visa.png":"/static/img/logos/cash.png";
-        let cartlogoalt = this.props.stall.takes_card === true ? "This stall accepts payment by credit card":"This stall only accepts payments in cash";
+  render() {
+    let cardlogo =
+      this.props.stall.takes_card === true
+        ? "/static/img/logos/visa.png"
+        : "/static/img/logos/cash.png";
+    let cartlogoalt =
+      this.props.stall.takes_card === true
+        ? "This stall accepts payment by credit card"
+        : "This stall only accepts payments in cash";
 
           return (
         
         <div  className="stall">
         <img className="stall__image" src={this.props.stall.image}/>
         <h3>{this.props.stall.title}</h3>
-
         <StarRatings className="ratings"
           rating={Number(this.props.stall.average_rating)}
           starRatedColor="#0BBC62"
@@ -37,10 +42,9 @@ class Stall extends React.Component {
             <img className="stall__credit" src={cardlogo} alt={cartlogoalt}/>
             </div>
         <button onClick={this.submitHandler}>more info</button>
-
-            </div>   
-          )
-        }  
+      </div>
+    );
+  }
 }
 
 export default Stall;

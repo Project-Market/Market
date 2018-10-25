@@ -1,6 +1,5 @@
 import React from 'react';
-import MarketApp from './MarketApp';
-
+import StoreDetails from './StoreDetails'
 import {
   withScriptjs,
   withGoogleMap,
@@ -10,17 +9,16 @@ import {
 } from "react-google-maps";
 
 
-class SingleMarker extends React.Component{
+class SingleStoreMarker extends React.Component{
   constructor(){
     super();
     this.state={
       isOpen:false,
-
+      showStallDetails: false
     }
 
     this.onToggleOpen = this.onToggleOpen.bind(this);
-    this.showMarketDetails = this.showMarketDetails.bind(this);
-
+    this.showStallDetails = this.showStallDetails.bind(this)
   }
 
     onToggleOpen(){
@@ -29,34 +27,35 @@ class SingleMarker extends React.Component{
       })
     }
 
-    showMarketDetails(){
-      this.props.showMarketDetails()
+    showStallDetails(){
+      this.props.showStallDetails(this.props.stall.id)
     }
+
   render(){
 
     return (
-
+      <div>
     <Marker
-    position={{ lat: Number(this.props.market.lat), lng: Number(this.props.market.lang)}}
+    position={{ lat: Number(this.props.stall.lat), lng: Number(this.props.stall.lang)}}
     onClick={this.onToggleOpen}
     >
+
     {this.state.isOpen && <InfoWindow
     onCloseClick={this.onToggleOpen}
-
     options={{ closeBoxURL: ``, enableEventPropagation: true }}
     >
-    <div onClick={this.showMarketDetails} style={{ backgroundColor: `#F5F5F5`, opacity: 0.75, padding: `12px` }}>
+    <div onClick={this.showStallDetails} style={{ backgroundColor: `#F5F5F5`, opacity: 0.75, padding: `12px` }}>
       <div style={{ fontSize: `16px`, fontColor: `#08233B` }}>
-      <h4>{this.props.market.name}</h4>
-      <p>{this.props.market.address}</p>
+      <h4>{this.props.stall.title}</h4>
+      <p>{this.props.stall.category}</p>
+      <p>{this.props.stall.stall_website}</p>
       </div>
     </div>
     </InfoWindow>}
-  </Marker>
-
-
+    </Marker>
+    </div>
   )
   }
 }
 
-export default SingleMarker;
+export default SingleStoreMarker;

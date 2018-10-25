@@ -1,6 +1,5 @@
 @import "defaults";
 
-
 .stall{
     display:flex;
     justify-content: flex-start;
@@ -27,7 +26,7 @@
         width: 25px;
         height: 25px;
     }
-    
+   
 }
 
 .star-ratings{
@@ -39,3 +38,20 @@ button{
 // width:100px
 }
 
+.hvr-forward {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-forward:hover,
+.hvr-forward:focus,
+.hvr-forward:active {
+  -webkit-transform: translateX(8px);
+  transform: translateX(8px);
+}

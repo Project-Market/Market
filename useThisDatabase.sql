@@ -76,6 +76,18 @@ INSERT INTO market_stall VALUES (7, 'Street Food Studio', 5, '/static/img/7.jpg'
 INSERT INTO market_stall VALUES (8, 'Middle East Food', 5, '/static/img/7.jpg', 'Lebanese', 'www.middleeaststall.com', false, 51.520643, -0.109607 ,'leather_lane');
 INSERT INTO market_stall VALUES (9, 'German Hotdog', 3, '/static/img/7.jpg', 'German', 'www.germanhotdogs.com', true, 51.519905, -0.109323, 'leather_lane');
 
+UPDATE MARKET_STALL SET lat = 51.520130, lang = 51.520130 WHERE id = 0;
+UPDATE MARKET_STALL SET lat = 51.520238, lang = -0.109688 WHERE id = 1;
+UPDATE MARKET_STALL SET lat = 51.520306, lang = -0.109454 WHERE id = 2;
+UPDATE MARKET_STALL SET lat = 51.519989, lang = -0.109347 WHERE id = 3;
+UPDATE MARKET_STALL SET lat = 51.519810, lang = -0.109283 WHERE id = 4;
+UPDATE MARKET_STALL SET lat = 51.519536, lang = -0.109176 WHERE id = 5;
+UPDATE MARKET_STALL SET lat = 51.519864, lang = -0.109308 WHERE id = 6;
+UPDATE MARKET_STALL SET lat = 51.520556, lang = -0.109568 WHERE id = 7;
+UPDATE MARKET_STALL SET lat = 51.520643, lang = -0.109607 WHERE id = 8;
+UPDATE MARKET_STALL SET lat = 51.519905, lang = -0.109323 WHERE id = 9;
+
+
 
 INSERT INTO dish VALUES(0,0,'Chicken With Waffles',6.00,'fried chicken with sweet waffles');
 INSERT INTO dish VALUES(0,0,'Chicken With Noodles',7.00,'fried chicken with sweet waffles');
