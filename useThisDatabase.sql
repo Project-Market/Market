@@ -89,9 +89,9 @@ UPDATE MARKET_STALL SET lat = 51.519905, lang = -0.109323 WHERE id = 9;
 
 
 
-INSERT INTO dish VALUES(0,0,'Chicken With Waffles',6.00,'fried chicken with sweet waffles');
-INSERT INTO dish VALUES(0,0,'Chicken With Noodles',7.00,'fried chicken with sweet waffles');
-INSERT INTO dish VALUES(0,0,'Chicken Soup',5.00,'fried chicken with sweet waffles');
+INSERT INTO dish VALUES(1, 0,'Chicken With Waffles',6.00,'fried chicken with sweet waffles');
+INSERT INTO dish VALUES(2, 0,'Chicken With Noodles',7.00,'fried chicken with sweet waffles');
+INSERT INTO dish VALUES(3, 0,'Chicken Soup',5.00,'fried chicken with sweet waffles');
 
 
 INSERT INTO dish VALUES(1,1,'Philly CheeseSteak',7.00,'Steak topped with cheese in a crisp bun');
@@ -126,7 +126,7 @@ INSERT INTO dish VALUES(7,7,'Fresh Salad',4.00,'A freshly prepared salad made da
 INSERT INTO dish VALUES(8,8,'Grilled Hallomi',5.00,'Fresh grilled hallomi');
 INSERT INTO dish VALUES(8,8,'Grilled King Prawns',7.00,'Grilled king prawns, served with garlic butter');
 INSERT INTO dish VALUES(8,8,'Grilled Sea Bass',8.00,' Grilled sea bass sprinkled with garlic');
-
+;
 INSERT INTO dish VALUES(9,9,'Hotdog With Onions',7.00,'German hotdog stuffed with onions');
 INSERT INTO dish VALUES(9,9,'Cumberland Hotdog',7.00,'German cumberland hotdog');
 INSERT INTO dish VALUES(9,9,'Chicken Hotdog',7.00,'German chicken hotdog');
