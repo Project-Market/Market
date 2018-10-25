@@ -53,6 +53,7 @@ class LandingMap extends React.PureComponent {
 
       <MyMapComponent
         marketInfo={this.state.marketInfo}
+        showMarketDetails={this.props.showMarketDetails} 
         stalls={this.props.stalls}
         isMarkerShown={this.state.isMarkerShown}
         onMarkerClick={this.handleMarkerClick}

@@ -15,11 +15,12 @@ class SingleMarker extends React.Component{
     super();
     this.state={
       isOpen:false,
-      showMarketDetails:false,
+
     }
 
     this.onToggleOpen = this.onToggleOpen.bind(this);
     this.showMarketDetails = this.showMarketDetails.bind(this);
+
   }
 
     onToggleOpen(){
@@ -29,14 +30,12 @@ class SingleMarker extends React.Component{
     }
 
     showMarketDetails(){
-      this.setState({
-        showMarketDetails:!this.state.showMarketDetails
-      },()=>console.log(this.state.showMarketDetails))
+      this.props.showMarketDetails()
     }
   render(){
 
     return (
-      <div>
+
     <Marker
     position={{ lat: Number(this.props.market.lat), lng: Number(this.props.market.lang)}}
     onClick={this.onToggleOpen}
@@ -54,8 +53,8 @@ class SingleMarker extends React.Component{
     </div>
     </InfoWindow>}
   </Marker>
-    {this.state.showMarketDetails && <MarketApp/>}
-    </div>
+
+
   )
   }
 }

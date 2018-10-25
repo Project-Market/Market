@@ -34,7 +34,7 @@ const MyMapComponent = compose(
     >
       {props.marketInfo.map(market => {
 
-      return  <SingleMarker market={market}/>
+      return  <SingleMarker showMarketDetails={props.showMarketDetails} market={market}/>
       })}
     </GoogleMap>
 
