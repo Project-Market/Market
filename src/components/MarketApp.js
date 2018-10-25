@@ -2,6 +2,7 @@ import React from "react";
 import Stalls from "./Stalls";
 import Map from "./Map";
 import Nav from "./Nav";
+import Filter from "./Filter";
 
 class MarketApp extends React.Component {
   constructor() {
@@ -68,10 +69,8 @@ class MarketApp extends React.Component {
     this.stallFetch();
   }
 
-
   // POST REVIEW should ==
   // {market_stall_id: 1,user_name: "Chris",rating: 5, review: "sublime"}
-
 
   render() {
     return (
@@ -89,7 +88,6 @@ class MarketApp extends React.Component {
           filteredResultsReceiver={this.receiveFilteredResults}
           desRatingFilter={this.receiveDesRatingFilter}
         />
-
       </div>
     );
   }
