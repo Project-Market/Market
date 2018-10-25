@@ -33,6 +33,7 @@ class Stalls extends React.PureComponent {
           stall={this.props.stalls[this.state.stallid]}
           stall_id={this.state.stallid}
           switcher={switcher}
+          clickStallMore={this.clickStallMore}
         />
       );
     } else {

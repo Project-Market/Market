@@ -77,16 +77,15 @@ class MarketApp extends React.Component {
       <div>
         <Nav />
         <Map />
-        <Stalls
-          stalls={this.state.stalls}
-          filteredStalls={this.state.filteredStalls}
-        />
-
         <Filter
           filteredStalls={this.state.filteredStalls}
           stalls={this.state.stalls}
           filteredResultsReceiver={this.receiveFilteredResults}
           desRatingFilter={this.receiveDesRatingFilter}
+        />
+        <Stalls
+          stalls={this.state.stalls}
+          filteredStalls={this.state.filteredStalls}
         />
       </div>
     );
