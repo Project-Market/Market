@@ -87,6 +87,7 @@ class Filter extends React.Component {
     const { selectedCuisine } = this.state.cuisine;
     return (
       <div className={this.props.name}>
+        
         <Select
           value={selectedCuisine}
           onChange={this.cuisineSelectHandle}
@@ -94,26 +95,29 @@ class Filter extends React.Component {
           isClearable
           placeholder="Select a cuisine"
         />
+      <div className='filter'>
+        <div className='test'>
+          <input
+            className="card-checkbox"
+            type="checkbox"
+            name="card"
+            value="card"
+           onChange={this.cardClick}
+          />
+          <label for="card">Accepts Card</label>
+        </div>
 
-        <input
-          className="card-checkbox"
-          type="checkbox"
-          name="card"
-          value="card"
-          onChange={this.cardClick}
-        />
-
-        <label for="card">Accepts Card</label>
-
-        <input
-          className="rating-checkbox"
-          type="checkbox"
-          name="rating"
-          value="rating"
-          onChange={this.ratingClick}
-        />
-
-        <label for="rating">Sort by rating</label>
+          <div className='test'>
+            <input
+             className="rating-checkbox"
+             type="checkbox"
+             name="rating"
+             value="rating"
+             onChange={this.ratingClick}
+           />
+          <label for="rating">Sort by rating</label>
+          </div>
+        </div>
       </div>
     );
   }
