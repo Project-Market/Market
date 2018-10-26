@@ -1,14 +1,15 @@
-import React from 'react'
+import React from "react";
 import "../styles/Nav.scss";
 
 class Nav extends React.Component {
-    constructor() {
-      super();
-      this.state = {};
-    }
-  
-    render() {
-      return (
+  constructor() {
+    super();
+    this.state = {};
+  }
+
+  render() {
+    return (
+      <div className="nav-grid">
         <div className="nav">
         <a href="/">Project Market</a>
          <div className="nav__logos">
@@ -17,9 +18,9 @@ class Nav extends React.Component {
          <img src="/static/img/logos/pizza.png"/>
          </div>
         </div>
-      );
-    }
+      </div>
+    );
   }
-  
-  export default Nav;
-  
+}
+
+export default Nav;

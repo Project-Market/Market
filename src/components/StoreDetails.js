@@ -35,24 +35,21 @@ class StoreDetails extends React.Component {
 
   render() {
     return (
-      <div id='test' className={this.props.switcher}>
 
-      <div onClick={this.closeDetails}>X</div>
+      <div id="test" className={this.props.switcher}>
+        <div onClick={this.closeDetails} className="close">Back</div>
+        {this.state.dishes.length!==0 ?
+        (<div >
+          <h3 className="title">{this.state.dishes[0].title}</h3>
+        <img className="store__image" src={this.state.dishes[0].image}/>
+        </div>
+      ):null}
         {this.state.dishes.map(dish => {
           return (
             <div key={dish.id}>
-
-              <p>
-
-                {dish.dish_title}
-              </p>
-              <p>
-                £
-                {dish.price}
-              </p>
-              <p className='description'>
-                {dish.description}
-              </p>
+              <p>{dish.dish_title}</p>
+              <p>£ {dish.price}</p>
+              <p className="description">{dish.description}</p>
               <hr />
             </div>
           );
