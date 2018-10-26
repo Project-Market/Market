@@ -1,22 +1,17 @@
 @import "defaults";
 
 
-#stalls{
-    text-align:center;
-    width: 300px; height: 550px; overflow: auto;
 
-}
 .hide_stalls{
     display:none;
 
 }
 
 .show_stalls{
+    margin: auto;
     display: block;
-
-
+    width: 300px; height: 565px; overflow: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
-ul{
-    padding:0;
-}
+

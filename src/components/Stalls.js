@@ -56,3 +56,4 @@ class Stalls extends React.PureComponent {
 }
 
 export default Stalls;
+

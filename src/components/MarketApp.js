@@ -3,6 +3,7 @@ import Stalls from "./Stalls";
 import Map from "./Map";
 import Nav from "./Nav";
 import Filter from "./Filter";
+import "../styles/MarketApp.scss";
 
 class MarketApp extends React.Component {
   constructor() {
@@ -89,24 +90,28 @@ this.setState({hidefilter:!this.state.hidefilter})
       
         <div>
           <Nav />
+          <div className='split'>
           <Map hideEverythingElse={this.hideEverythingElse} single={false}/>
 
           { !this.state.hideEverythingElse && (
-            <React.Fragment>  
+            <div> 
+               
               <Filter
                 filteredStalls={this.state.filteredStalls}
                 stalls={this.state.stalls}
                 filteredResultsReceiver={this.receiveFilteredResults}
                 desRatingFilter={this.receiveDesRatingFilter}
               />
+              <div className='stalls'>
               <Stalls
                 stalls={this.state.stalls}
                 filteredStalls={this.state.filteredStalls}
               />
-            </React.Fragment>
+              </div>
+            </div>
           )}
         </div>
-      
+       </div>
       </div>
     );
   }

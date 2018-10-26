@@ -1,5 +1,6 @@
 import React from "react";
 import Select from "react-select";
+import "../styles/Filter.scss";
 
 const options = [
   { value: "", label: "All" },
@@ -85,7 +86,7 @@ class Filter extends React.Component {
   render() {
     const { selectedCuisine } = this.state.cuisine;
     return (
-      <div>
+      <div className='filter'>
         <Select
           value={selectedCuisine}
           onChange={this.cuisineSelectHandle}
