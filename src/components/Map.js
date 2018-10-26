@@ -73,17 +73,15 @@ class Map extends React.PureComponent {
               clickStallMore={this.clickStallMore}
               stall={this.state.marketStallInfo[this.state.storeId]}
               stall_id={this.state.storeId}
-            /> :
-
-            <MyMapDesktop
-
-              showStallDetails={this.showStallDetails}
+            /> : 
+              
+            <MyMapDesktop showStallDetails={this.showStallDetails}
             marketStallInfo={this.state.marketStallInfo}
             isMarkerShown={this.state.isMarkerShown}
             onMarkerClick={this.handleMarkerClick}
             hideEverythingElse={this.props.hideEverythingElse}
             />
-
+            
         }
         </div>
       : null }

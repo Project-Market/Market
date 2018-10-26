@@ -29,7 +29,7 @@ const MyMapComponent = compose(
 )(props => {
   return (
     <GoogleMap
-      defaultZoom={14}
+      defaultZoom={13.3}
       defaultCenter={props.center}
     >
       {props.marketInfo.map(market => {

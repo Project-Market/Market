@@ -97,13 +97,13 @@ this.setState({hidefilter:!this.state.hidefilter})
     return (
 
 
-        <div className="Main-page">
+        <div>
           <Nav />
-
-          <Map name={hideBackground} hideEverythingElse={this.hideEverythingElse} single={false}/>
+          <div className='split'>
+          <Map  name={hideBackground} hideEverythingElse={this.hideEverythingElse} single={false}/>
 
           { !this.state.hideEverythingElse && (
-            <React.Fragment>
+            <div> 
               <Filter
                 name={hideBackground}
                 filteredStalls={this.state.filteredStalls}
@@ -111,16 +111,17 @@ this.setState({hidefilter:!this.state.hidefilter})
                 filteredResultsReceiver={this.receiveFilteredResults}
                 desRatingFilter={this.receiveDesRatingFilter}
               />
+              <div className='stalls'>
               <Stalls
                 stalls={this.state.stalls}
                 filteredStalls={this.state.filteredStalls}
                 hideBackground={this.hideBackground}
               />
-            </React.Fragment>
+              </div>
+            </div>
           )}
         </div>
-
-
+       </div>
     );
   }
 }

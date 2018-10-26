@@ -42,15 +42,14 @@ class StoreDetails extends React.Component {
             <div key={dish.id}>
               
               <p>
-                dish title:
+                
                 {dish.dish_title}
               </p>
               <p>
-                price:£
+                £
                 {dish.price}
               </p>
-              <p>
-                description:
+              <p className='description'>
                 {dish.description}
               </p>
               <hr />

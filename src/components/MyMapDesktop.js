@@ -1,8 +1,6 @@
 import React from "react";
-import SingleStoreMarker from './SingleStoreMarker';
+import SingleStoreMarker from './SingleStoreMarker'
 import "../styles/MyMapDesktop.scss";
-
-
 import { compose, withProps, withStateHandlers } from "recompose";
 import {
   withScriptjs,
@@ -17,7 +15,7 @@ const MyMapDesktop = compose(
     googleMapURL: `https://maps.googleapis.com/maps/api/js?key=AIzaSyAMzOxPMWZ48_HxfwIoeLu6O0zpNmK2f6U&v=3.exp&libraries=geometry,drawing,places`,
     loadingElement: <div style={{ height: `100%` }} />,
 
-    containerElement: <div style={{ height: `800px`}} />,
+    containerElement: <div  className='map-height' />,
 
     mapElement: <div style={{ height: `100%` }} />
   }),
