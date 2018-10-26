@@ -28,20 +28,22 @@ class Stall extends React.Component {
         
         <div onClick={this.submitHandler} className="stall">
         <img className="stall__image" src={this.props.stall.image}/>
-        <h3>{this.props.stall.title}</h3>
+        <div className="stall__wrapper">
+        <h2>{this.props.stall.title}</h2>
 
-        <div className="stall__average">(Average Rating)</div>
+        <h3 className="stall__average">(Average Rating)</h3>
         <StarRatings className="ratings"
           rating={Number(this.props.stall.average_rating)}
           starRatedColor="#f46350"
           numberOfStars={5}
           className="star__rating"
-          starDimension="20px"
+          starDimension="15px"
           starSpacing="5px"
         />
             <div className="stall__lowrow">
             <h3>{this.props.stall.category}</h3>
             <img className="stall__credit" src={cardlogo} alt={cartlogoalt}/>
+            </div>
             </div>
             <hr></hr>
         {/* <button onClick={this.submitHandler}>more info</button> */}
