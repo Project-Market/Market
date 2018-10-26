@@ -47,9 +47,11 @@ class Reviews extends React.Component{
   render(){
     return(
       <div className="reviews">
+        <div className="headings">
         <h3>Review Summary</h3>
         <h4>Average rating {this.props.average_rating}</h4>
         <h4>{this.state.reviews.length} reviews</h4>
+        </div>
       <p type="button" className="reviews__yourthoughts" onClick={this.handleNewReview}>Write your thoughts?</p>
 
       <div className="reviews__display">
