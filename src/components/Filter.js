@@ -87,7 +87,6 @@ class Filter extends React.Component {
     const { selectedCuisine } = this.state.cuisine;
     return (
       <div className={this.props.name}>
-
         <Select
           value={selectedCuisine}
           onChange={this.cuisineSelectHandle}
@@ -97,39 +96,34 @@ class Filter extends React.Component {
         />
 
         <form className="filter-checkboxes">
+          <div className="filter">
+            <div className="test">
+              <input
+                className="card-checkbox"
+                type="checkbox"
+                name="card"
+                value="card"
+                onChange={this.cardClick}
+              />
 
-      <div className='filter'>
-        <div className='test'>
+              <label for="card" className="pure-checkbox">
+                Accepts Card
+              </label>
 
-          <input
-            className="card-checkbox"
-            type="checkbox"
-            name="card"
-            value="card"
+              <input
+                className="rating-checkbox"
+                type="checkbox"
+                name="rating"
+                value="rating"
+                onChange={this.ratingClick}
+              />
 
-            onChange={this.cardClick}
-          />
-
-          <label for="card" className="pure-checkbox">
-            Accepts Card
-          </label>
-
-          <input
-            className="rating-checkbox"
-            type="checkbox"
-            name="rating"
-            value="rating"
-            onChange={this.ratingClick}
-          />
-
-          <label for="rating" className="pure-checkbox">
-            Sort by rating
-          </label>
-
-        </div>
-        </div>
+              <label for="rating" className="pure-checkbox">
+                Sort by rating
+              </label>
+            </div>
+          </div>
         </form>
-
       </div>
     );
   }
