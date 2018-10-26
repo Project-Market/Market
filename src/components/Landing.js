@@ -1,5 +1,6 @@
 import React from "react";
 import LandingMap from "./LandingMap";
+import Nav from "./Nav";
 import "../styles/Landing.scss";
 
 class Landing extends React.Component {
@@ -16,6 +17,8 @@ class Landing extends React.Component {
   render() {
     return (
       <div>
+        <Nav />
+
         <LandingMap showMarketDetails={this.props.showMarketDetails} />
 
         <div className="landing">
@@ -31,8 +34,6 @@ class Landing extends React.Component {
           <button className="brick-landing-button ">Brick Lane</button>
 
           <button className="borough-landing-button ">Borough Market</button>
-          <div className="left" />
-          <div className="right" />
         </div>
       </div>
     );

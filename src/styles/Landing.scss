@@ -12,9 +12,9 @@
   grid-row: 1;
   color: white;
   font-size: 0px;
-
   background-color: white;
   font-family: $font-family;
+  background-position: center top right;
   background-image: url("https://res.cloudinary.com/fleetnation/image/private/c_fit,w_1120/g_south,l_text:style_gothic2:%C2%A9%20Peter%20Moulton,o_20,y_10/g_center,l_watermark4,o_25,y_50/v1409644783/o0crx7xtyjuis4u4nnpy.jpg");
   height: 135px;
   filter: grayscale(100%);
@@ -23,13 +23,13 @@
 .leather-landing-button:hover {
   font-size: 40px;
   filter: none;
+  cursor: pointer;
 }
 
 .exmouth-landing-button {
   grid-row: 2;
   color: white;
   font-size: 0px;
-
   background-color: white;
   font-family: $font-family;
   background-image: url("https://cdn.londonandpartners.com/asset/exmouth-market-f0b93801a4404c2195160e82a1e7b9a6.jpg");
@@ -40,6 +40,7 @@
 .exmouth-landing-button:hover {
   font-size: 40px;
   filter: none;
+  cursor: pointer;
 }
 
 .brick-landing-button {
@@ -56,6 +57,7 @@
 .brick-landing-button:hover {
   font-size: 40px;
   filter: none;
+  cursor: pointer;
 }
 
 .borough-landing-button {
@@ -72,4 +74,5 @@
 .borough-landing-button:hover {
   font-size: 40px;
   filter: none;
+  cursor: pointer;
 }
