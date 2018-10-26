@@ -104,7 +104,7 @@ this.setState({hidefilter:!this.state.hidefilter})
 
           { !this.state.hideEverythingElse && (
             <div> 
-              <Filter
+              <Filter className="filter"
                 name={hideBackground}
                 filteredStalls={this.state.filteredStalls}
                 stalls={this.state.stalls}
