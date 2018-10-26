@@ -76,3 +76,36 @@
   filter: none;
   cursor: pointer;
 }
+
+@media screen and (min-width: 1000px) {
+  .landing-full-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .landing-map {
+    grid-column: 2/3;
+    grid-row: 1/4;
+  }
+
+  .leather-landing-button {
+    grid-column: 1/2;
+    height: 25vh;
+  }
+
+  .exmouth-landing-button {
+    grid-column: 1/2;
+    height: 25vh;
+  }
+
+  .brick-landing-button {
+    grid-column: 1/2;
+    height: 25vh;
+  }
+
+  .borough-landing-button {
+    grid-column: 1/2;
+    height: 25vh;
+  }
+}

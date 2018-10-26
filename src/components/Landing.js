@@ -18,22 +18,25 @@ class Landing extends React.Component {
     return (
       <div>
         <Nav />
+        <div className="landing-full-grid">
+          <div className="landing-map">
+            <LandingMap showMarketDetails={this.props.showMarketDetails} />
+          </div>
 
-        <LandingMap showMarketDetails={this.props.showMarketDetails} />
+          <div className="landing">
+            <button
+              className="leather-landing-button"
+              onClick={this.showMarketDetails}
+            >
+              Leather Lane
+            </button>
 
-        <div className="landing">
-          <button
-            className="leather-landing-button"
-            onClick={this.showMarketDetails}
-          >
-            Leather Lane
-          </button>
+            <button className="exmouth-landing-button ">Exmouth Market</button>
 
-          <button className="exmouth-landing-button ">Exmouth Market</button>
+            <button className="brick-landing-button ">Brick Lane</button>
 
-          <button className="brick-landing-button ">Brick Lane</button>
-
-          <button className="borough-landing-button ">Borough Market</button>
+            <button className="borough-landing-button ">Borough Market</button>
+          </div>
         </div>
       </div>
     );
