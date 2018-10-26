@@ -15,16 +15,24 @@ font-style:italic;
     width: 100vw;
     height:100vh;
     background-color:white;
-    // z-index: 5;
+   
 }
 
+
 #test{
-  display: grid;
-  // position: absolute;
-  top:0;
-  left:0;
-  // width: 100vw;
-  // height:100vh;
-  background-color:white;
-  grid-template-columns: 1fr;
+ width: 300px; height: 100vh; overflow: auto;
+-ms-overflow-style: -ms-autohiding-scrollbar;
+text-align:center;
+margin: auto;
 }
+
+@media screen and (max-width: 700px) {
+    #test{
+    width: 100vw;
+    height:100vh;
+    }
+
+    
+}
+
+
