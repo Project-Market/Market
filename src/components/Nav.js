@@ -10,7 +10,7 @@ class Nav extends React.Component {
     render() {
       return (
         <div className="nav">
-        Project Market
+        <a href="/">Project Market</a>
          <div className="nav__logos">
          <img src="/static/img/logos/burger.png"/>
          <img src="/static/img/logos/noodles.png"/>

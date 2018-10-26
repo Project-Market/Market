@@ -30,10 +30,8 @@ class Stall extends React.Component {
         <img className="stall__image" src={this.props.stall.image}/>
         <h3>{this.props.stall.title}</h3>
 
-        <span>(Average Rating)</span>
+        <div className="stall__average">(Average Rating)</div>
         <StarRatings className="ratings"
-
-    
           rating={Number(this.props.stall.average_rating)}
           starRatedColor="#f46350"
           numberOfStars={5}
