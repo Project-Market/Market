@@ -34,7 +34,7 @@ class Reviews extends React.Component{
 
     this.setState({
       displayNewReviewForm: !this.state.displayNewReviewForm
-    }, ()=>this.fetchStoreReviews())
+    }, () => this.fetchStoreReviews())
   }
 
   receiveClose(){
