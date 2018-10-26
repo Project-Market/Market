@@ -95,29 +95,38 @@ class Filter extends React.Component {
           isClearable
           placeholder="Select a cuisine"
         />
+
+        <form className="filter-checkboxes">
+
       <div className='filter'>
         <div className='test'>
+
           <input
             className="card-checkbox"
             type="checkbox"
             name="card"
             value="card"
-           onChange={this.cardClick}
-          />
-          <label for="card">Accepts Card</label>
-        </div>
 
-          <div className='test'>
-            <input
-             className="rating-checkbox"
-             type="checkbox"
-             name="rating"
-             value="rating"
-             onChange={this.ratingClick}
-           />
-          <label for="rating">Sort by rating</label>
-          </div>
-        </div>
+            onChange={this.cardClick}
+          />
+
+          <label for="card" className="pure-checkbox">
+            Accepts Card
+          </label>
+
+          <input
+            className="rating-checkbox"
+            type="checkbox"
+            name="rating"
+            value="rating"
+            onChange={this.ratingClick}
+          />
+
+          <label for="rating" className="pure-checkbox">
+            Sort by rating
+          </label>
+        </form>
+
       </div>
     );
   }
