@@ -27,68 +27,49 @@ font-style:italic;
     }
 
     .close{
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-column: 3/4;
+      display:flex;
+      justify-content: flex-start;
         @extend %button;
         padding: $content-padding;
     }
 
     background-color:white;
     .store__image{
-      width: 90vw
+      width: 300px;
     }
     // z-index: 5;
 }
 
+
 #test{
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-  height: 70vh;
-  top:0;
-  left:0;
-  overflow: auto;
-
-  .title{
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  .close{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column: 3/4;
-      @extend %button;
-      padding: $content-padding;
-  }
-  background-color:white;
-  .store__image{
-    width: 90vw
-  }
+ width: 300px; height: 100vh; overflow: auto;
+-ms-overflow-style: -ms-autohiding-scrollbar;
+text-align:center;
+margin: auto;
+.store__image{
+  width: 300px;
+}
+.close{
+  display:flex;
+  justify-content: flex-start;
+    @extend %button;
+    padding: $content-padding;
+}
 }
 
-@media screen and (min-width: 700px) {
-  .show_dishes{
-width: 420px;
- height: 100vh;
-overflow: auto;
--ms-overflow-style: -ms-autohiding-scrollbar;
-
-      .store__image{
-        width: 400px
-      }
-      // z-index: 5;
+@media screen and (max-width: 700px) {
+  .store__image{
+    width: 300px;
   }
-
-  #test{
-width: 420px; height:  100vh; overflow: auto;
--ms-overflow-style: -ms-autohiding-scrollbar;
+    #test{
+    width: 100vw;
+    height:100vh;
     .store__image{
-      width: 400px
+      width: 300px;
     }
-  }
+
+
+    }
+
 
 }

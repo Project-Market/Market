@@ -16,8 +16,9 @@
 
 
   &__yourthoughts{
-    @extend %button;
-    padding: $content-padding;
-
+    display:flex;
+    justify-content: flex-start;
+      @extend %button;
+      padding: $content-padding;
     }
 }

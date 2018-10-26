@@ -1,22 +1,30 @@
-.show{
+.show {
   display: flex;
   flex-direction: column;
+
   margin-bottom: 15px;
-  
-    
 }
 
-.filter{
-  display:flex;
+.filter {
+  display: flex;
   justify-content: center;
 }
 
-.test{
+.test {
   margin: 5px;
 }
 
-
-
-.hide{
+.hide {
   display: none;
 }
+
+.dropdown {
+}
+
+.dropdown:hover {
+  cursor: pointer;
+}
+
+// .filter{
+//   width: 300px;
+// }

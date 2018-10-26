@@ -85,7 +85,7 @@ class Map extends React.PureComponent {
 
     if(!(window.matchMedia("(max-width:700px)").matches && this.state.showStallDetails )){
       content.push(
-
+        
         <MyMapDesktop
           key="map"
           showStallDetails={this.showStallDetails}
@@ -94,12 +94,11 @@ class Map extends React.PureComponent {
           onMarkerClick={this.handleMarkerClick}
           hideEverythingElse={this.props.hideEverythingElse}
         />
-
       );
     }
 
     return (
-      <div>
+      <div className='tested'>
         {this.state.marketStallInfo ? (
           <div className={this.props.name}>{content}</div>
         ) : null}
