@@ -11,12 +11,12 @@ class Nav extends React.Component {
     return (
       <div className="nav-grid">
         <div className="nav">
-          Project Market
-          <div className="nav__logos">
-            <img src="/static/img/logos/burger.png" />
-            <img src="/static/img/logos/noodles.png" />
-            <img src="/static/img/logos/pizza.png" />
-          </div>
+        <a href="/">Project Market</a>
+         <div className="nav__logos">
+         <img src="/static/img/logos/burger.png"/>
+         <img src="/static/img/logos/noodles.png"/>
+         <img src="/static/img/logos/pizza.png"/>
+         </div>
         </div>
       </div>
     );
