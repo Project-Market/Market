@@ -87,7 +87,7 @@ class Filter extends React.Component {
     const { selectedCuisine } = this.state.cuisine;
     return (
       <div className={this.props.name}>
-        
+
         <Select
           value={selectedCuisine}
           onChange={this.cuisineSelectHandle}
@@ -125,6 +125,9 @@ class Filter extends React.Component {
           <label for="rating" className="pure-checkbox">
             Sort by rating
           </label>
+
+        </div>
+        </div>
         </form>
 
       </div>
