@@ -20,10 +20,10 @@ class Landing extends React.Component {
 
         <div className="landing">
           <button
-            className="leather-landing-button pure-button"
+            className="leather-landing-button"
             onClick={this.showMarketDetails}
           >
-            Leather Lane Street Market
+            Leather Lane
           </button>
 
           <button className="exmouth-landing-button ">Exmouth Market</button>
