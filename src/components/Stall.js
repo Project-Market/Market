@@ -45,7 +45,7 @@ class Stall extends React.Component {
             <img className="stall__credit" src={cardlogo} alt={cartlogoalt}/>
             </div>
             </div>
-            <hr></hr>
+            {/* <hr className="line"></hr> */}
         {/* <button onClick={this.submitHandler}>more info</button> */}
       </div>
     );
