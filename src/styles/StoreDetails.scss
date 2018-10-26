@@ -2,9 +2,11 @@
 
 .hide_dishes{
     display:none;
- 
-}
 
+}
+.description{
+font-style:italic;
+}
 .show_dishes{
     display: block;
     position: absolute;
@@ -14,4 +16,15 @@
     height:100vh;
     background-color:white;
     // z-index: 5;
+}
+
+#test{
+  display: grid;
+  // position: absolute;
+  top:0;
+  left:0;
+  // width: 100vw;
+  // height:100vh;
+  background-color:white;
+  grid-template-columns: 1fr;
 }

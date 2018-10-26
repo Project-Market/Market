@@ -1,13 +1,13 @@
 import React from "react";
 import MyMapDesktop from "./MyMapDesktop";
-import StoreDetails from './StoreDetails'
-import "../styles/MyMapDesktop.scss";
+import StoreDetails from "./StoreDetails";
+import "../styles/Map.scss";
 class Map extends React.PureComponent {
   constructor() {
     super();
     this.state = {
       isMarkerShown: false,
-      marketStallInfo:[],
+      marketStallInfo: [],
       showStallDetails: false,
       storeId: null
     };
@@ -16,7 +16,7 @@ class Map extends React.PureComponent {
     this.handleMarkerClick = this.handleMarkerClick.bind(this);
     this.fetchMarketInfo = this.fetchMarketInfo.bind(this);
     this.showStallDetails = this.showStallDetails.bind(this);
-    this.clickStallMore = this.clickStallMore.bind(this)
+    this.clickStallMore = this.clickStallMore.bind(this);
   }
 
   componentDidMount() {
@@ -34,57 +34,76 @@ class Map extends React.PureComponent {
     this.delayedShowMarker();
   }
 
-  fetchMarketInfo(){
-
+  fetchMarketInfo() {
     fetch("/api/market_stall")
-    .then(response=>response.json())
-    .then(markets => {
-      this.setState({
-        marketStallInfo: markets
+      .then(response => response.json())
+      .then(markets => {
+        this.setState({
+          marketStallInfo: markets
+        });
       })
-    })
-    .catch(error => {error: error.message})
+      .catch(error => {
+        error: error.message;
+      });
   }
 
-  showStallDetails(id){
-      this.setState({
-        showStallDetails: !this.state.showStallDetails,
-        storeId: Number(id)
-      })
-  }
-
-  componentDidMount(){
-    this.fetchMarketInfo()
-  }
-
-  clickStallMore(){
+  showStallDetails(id) {
     this.setState({
-      showStallDetails: !this.state.showStallDetails
-    }, () => this.props.hideEverythingElse())
+      showStallDetails: !this.state.showStallDetails,
+      storeId: Number(id)
+    });
+  }
+
+  componentDidMount() {
+    this.fetchMarketInfo();
+  }
+
+  clickStallMore() {
+    this.setState(
+      {
+        showStallDetails: !this.state.showStallDetails
+      },
+      () => this.props.hideEverythingElse()
+    );
   }
 
   render() {
+    let content = [];
+
+    if(this.state.showStallDetails){
+      content.push(
+
+        <StoreDetails
+          key="details"
+          clickStallMore={this.clickStallMore}
+          stall={this.state.marketStallInfo[this.state.storeId]}
+          stall_id={this.state.storeId}
+        />
+
+      );
+    }
+
+    if(!(window.matchMedia("(max-width:700px)").matches && this.state.showStallDetails )){
+      content.push(
+
+        <MyMapDesktop
+          key="map"
+          showStallDetails={this.showStallDetails}
+          marketStallInfo={this.state.marketStallInfo}
+          isMarkerShown={this.state.isMarkerShown}
+          onMarkerClick={this.handleMarkerClick}
+          hideEverythingElse={this.props.hideEverythingElse}
+        />
+
+      );
+    }
 
     return (
       <div>
-        {this.state.marketStallInfo ? 
-          <div>
-            {this.state.showStallDetails ? <StoreDetails
-              clickStallMore={this.clickStallMore}
-              stall={this.state.marketStallInfo[this.state.storeId]}
-              stall_id={this.state.storeId}
-            /> : 
-            <MyMapDesktop showStallDetails={this.showStallDetails}
-            marketStallInfo={this.state.marketStallInfo}
-            isMarkerShown={this.state.isMarkerShown}
-            onMarkerClick={this.handleMarkerClick}
-            hideEverythingElse={this.props.hideEverythingElse}
-            />
-        }
-        </div>
-      : null }
-    </div>
-          
+        {this.state.marketStallInfo ? (
+          <div className={this.props.name}>{content}</div>
+        ) : null}
+      </div>
     );
   }
 }

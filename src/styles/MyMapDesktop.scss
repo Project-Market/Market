@@ -1,9 +1,25 @@
 @import "defaults";
+.show{
+  display: flex;
+
+
+}
+
+.hide{
+  display: none;
+
+
+}
+
+
+.map-height{
+    height: 650px;
+}
 
 @media screen and (max-width: 700px) {
-    .desktop_map{
-    display: none;
-    }
+   .map-height{
+       height: 40vh;
+   }
 
-    
+
 }

@@ -59,11 +59,11 @@ class NewReview extends React.Component{
             name:"",
             rating:0,
             review:""
-          })
+          }, ()=>  this.props.handleNewReview())
         })
         .catch(error => {error: error.message})
 
-    this.props.handleNewReview();
+
 
   }
 

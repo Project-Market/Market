@@ -6,7 +6,7 @@ const app = express();
 
 const pgp = require("pg-promise")();
 const db = pgp({
-  host: "localhost",
+  host: process.env.DB_HOST || "localhost",
   port: 5432,
   database: process.env.DB_NAME,
   user: process.env.DB_USERNAME,
@@ -123,6 +123,6 @@ app.post(`/api/market_stall_review/:id`, (req, res) => {
     });
 });
 
-app.listen(8080, function() {
+app.listen(process.env.PORT||8080, function() {
   console.log("Listening on port 8080");
 });

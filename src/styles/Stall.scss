@@ -1,16 +1,15 @@
 @import "defaults";
 
-.stall {
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  padding-bottom: 30px;
 
-  h3 {
-    margin: 10px;
-    display: flex;
-    justify-content: flex-start;
-  }
+.stall{
+    text-align: center;
+    margin-bottom: 10px;
+    margin-right: 0;
+    margin-left:0;
+
+    h3{
+        text-align: center;
+    }
 
   &__image {
     width: 100%;
@@ -20,12 +19,19 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-  }
 
-  &__credit {
-    width: 25px;
-    height: 25px;
-  }
+    text-align: center;
+    }
+
+    &__credit{
+        width: 25px;
+        height: 25px;
+    }
+   
+    span{
+        font-size: 12.5px;
+    }
+
 }
 
 .star-ratings {
@@ -42,4 +48,9 @@
 
 button {
   // width:100px
+}
+
+.stall__image{
+    width: 200px;
+    height: 150px;
 }

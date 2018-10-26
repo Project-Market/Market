@@ -1,5 +1,6 @@
 import React from "react";
 import Select from "react-select";
+import "../styles/Filter.scss";
 
 const options = [
   { value: "", label: "All" },
@@ -85,7 +86,8 @@ class Filter extends React.Component {
   render() {
     const { selectedCuisine } = this.state.cuisine;
     return (
-      <div>
+      <div className={this.props.name}>
+        
         <Select
           value={selectedCuisine}
           onChange={this.cuisineSelectHandle}
@@ -93,12 +95,18 @@ class Filter extends React.Component {
           isClearable
           placeholder="Select a cuisine"
         />
+
         <form className="filter-checkboxes">
+
+      <div className='filter'>
+        <div className='test'>
+
           <input
             className="card-checkbox"
             type="checkbox"
             name="card"
             value="card"
+
             onChange={this.cardClick}
           />
 
@@ -118,6 +126,7 @@ class Filter extends React.Component {
             Sort by rating
           </label>
         </form>
+
       </div>
     );
   }
