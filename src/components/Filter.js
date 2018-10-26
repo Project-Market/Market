@@ -96,25 +96,27 @@ class Filter extends React.Component {
           placeholder="Select a cuisine"
         />
       <div className='filter'>
-        <input
-          className="card-checkbox"
-          type="checkbox"
-          name="card"
-          value="card"
-          onChange={this.cardClick}
-        />
+        <div className='test'>
+          <input
+            className="card-checkbox"
+            type="checkbox"
+            name="card"
+            value="card"
+           onChange={this.cardClick}
+          />
+          <label for="card">Accepts Card</label>
+        </div>
 
-        <label for="card">Accepts Card</label>
-
-        <input
-          className="rating-checkbox"
-          type="checkbox"
-          name="rating"
-          value="rating"
-          onChange={this.ratingClick}
-        />
-
-        <label for="rating">Sort by rating</label>
+          <div className='test'>
+            <input
+             className="rating-checkbox"
+             type="checkbox"
+             name="rating"
+             value="rating"
+             onChange={this.ratingClick}
+           />
+          <label for="rating">Sort by rating</label>
+          </div>
         </div>
       </div>
     );
