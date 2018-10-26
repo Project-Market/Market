@@ -20,21 +20,19 @@ class Landing extends React.Component {
 
         <div className="landing">
           <button
-            className="leather-landing-button pure-button hvr-grow"
+            className="leather-landing-button pure-button"
             onClick={this.showMarketDetails}
           >
             Leather Lane Street Market
           </button>
 
-          <button className="exmouth-landing-button hvr-grow">
-            Exmouth Market
-          </button>
+          <button className="exmouth-landing-button ">Exmouth Market</button>
 
-          <button className="brick-landing-button hvr-grow">Brick Lane</button>
+          <button className="brick-landing-button ">Brick Lane</button>
 
-          <button className="borough-landing-button hvr-grow">
-            Borough Market
-          </button>
+          <button className="borough-landing-button ">Borough Market</button>
+          <div className="left" />
+          <div className="right" />
         </div>
       </div>
     );
