@@ -24,9 +24,10 @@ class Stall extends React.Component {
         ? "This stall accepts payment by credit card"
         : "This stall only accepts payments in cash";
 
-    return (
-      <div className="stall">
-        <img className="stall__image" src={this.props.stall.image} />
+          return (
+        
+        <div onClick={this.submitHandler} className="stall">
+        <img className="stall__image" src={this.props.stall.image}/>
         <h3>{this.props.stall.title}</h3>
 
         <span>(Average Rating)</span>
@@ -34,22 +35,18 @@ class Stall extends React.Component {
 
     
           rating={Number(this.props.stall.average_rating)}
-          starRatedColor="#0BBC62"
+          starRatedColor="#f46350"
           numberOfStars={5}
           className="star__rating"
           starDimension="20px"
           starSpacing="5px"
         />
-        <div className="stall__lowrow">
-          <h3>{this.props.stall.category}</h3>
-          <img className="stall__credit" src={cardlogo} alt={cartlogoalt} />
-        </div>
-        <button
-          className="pure-button more-info-button"
-          onClick={this.submitHandler}
-        >
-          more info
-        </button>
+            <div className="stall__lowrow">
+            <h3>{this.props.stall.category}</h3>
+            <img className="stall__credit" src={cardlogo} alt={cartlogoalt}/>
+            </div>
+            <hr></hr>
+        {/* <button onClick={this.submitHandler}>more info</button> */}
       </div>
     );
   }
