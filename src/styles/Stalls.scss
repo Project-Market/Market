@@ -1,32 +1,28 @@
 @import "defaults";
 
-
-
-.hide_stalls{
-    display:none;
-
+.hide_stalls {
+  display: none;
 }
 
-.show_stalls{
-    margin: auto;
-    display: block;
-    width: 100%; 
-    height: 565px; 
-    overflow: auto;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-    padding:0;
-   
+.show_stalls {
+  margin: auto;
+  display: block;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  padding: 0;
 }
 
-#stalls{
-    padding: 0;
-    // background:lightgray;
+#stalls {
+  padding: 0;
+  // background:lightgray;
 }
 
-.stalls{
-    padding: 0;
+.stalls {
+  padding: 0;
 }
 
-.ul{
-    padding: 0;
+.ul {
+  padding: 0;
 }
