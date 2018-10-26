@@ -1,7 +1,9 @@
 .show {
   display: flex;
   flex-direction: column;
+
   margin-bottom: 15px;
+
 }
 
 .filter {
@@ -23,3 +25,7 @@
 .dropdown:hover {
   cursor: pointer;
 }
+
+// .filter{
+//   width: 300px;
+// }
