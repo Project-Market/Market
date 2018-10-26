@@ -1,16 +1,21 @@
 @import "defaults";
 
-.nav{
-    display: flex;
-    // align-items: flex-start;
-    align-items: center;
-    height:50px;
-    // z-index: 10;
-    background-color: #63b1c2;
-    color: white;
+.nav-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: #63b1c2;
+  justify-items: center;
+}
 
-    img{
-width:30px;
-    }
+.nav {
+  grid-column-start: center;
+  grid-column: 2/3;
+  height: 50px;
+  // z-index: 10;
 
-}   
+  color: white;
+
+  img {
+    width: 30px;
+  }
+}
