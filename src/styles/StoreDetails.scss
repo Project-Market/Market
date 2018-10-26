@@ -1,30 +1,75 @@
 @import "defaults";
+@import "parameters";
 
 .hide_dishes{
     display:none;
-
 }
 .description{
 font-style:italic;
 }
 .show_dishes{
-    display: block;
-    position: absolute;
+    display: flex;
+    flex-direction: column;
+
     top:0;
     left:0;
     width: 100vw;
-    height:100vh;
+    height: 70vh;
+    overflow: auto;
+
+
+    .title{
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .close{
+      display:flex;
+      justify-content: flex-start;
+        @extend %button;
+        padding: $content-padding;
+    }
+
     background-color:white;
+    .store__image{
+      width: 300px;
+    }
     // z-index: 5;
 }
 
+
 #test{
-  display: grid;
-  // position: absolute;
-  top:0;
-  left:0;
-  // width: 100vw;
-  // height:100vh;
-  background-color:white;
-  grid-template-columns: 1fr;
+ width: 300px; height: 100vh; overflow: auto;
+-ms-overflow-style: -ms-autohiding-scrollbar;
+text-align:center;
+margin: auto;
+.store__image{
+  width: 300px;
+}
+.close{
+  display:flex;
+  justify-content: flex-start;
+    @extend %button;
+    padding: $content-padding;
+}
+}
+
+@media screen and (max-width: 700px) {
+  .store__image{
+    width: 300px;
+  }
+    #test{
+    width: 100vw;
+    height:100vh;
+    .store__image{
+      width: 300px;
+    }
+
+
+    }
+
+
 }

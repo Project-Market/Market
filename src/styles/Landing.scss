@@ -2,42 +2,110 @@
 
 .landing {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: 1fr;
+  text-align: center;
+  text-justify: center;
 }
 
 .leather-landing-button {
-  grid-column: 2/3;
-  margin-bottom: 20px;
-  font-size: 25px;
-  border-radius: 5px;
+  grid-row: 1;
+  color: white;
+  font-size: 0px;
   background-color: white;
   font-family: $font-family;
+  background-position: center top right;
+  background-image: url("https://res.cloudinary.com/fleetnation/image/private/c_fit,w_1120/g_south,l_text:style_gothic2:%C2%A9%20Peter%20Moulton,o_20,y_10/g_center,l_watermark4,o_25,y_50/v1409644783/o0crx7xtyjuis4u4nnpy.jpg");
+  height: 135px;
+  filter: grayscale(100%);
+}
+
+.leather-landing-button:hover {
+  font-size: 40px;
+  filter: none;
+  cursor: pointer;
 }
 
 .exmouth-landing-button {
-  grid-column: 2/3;
-  margin-bottom: 20px;
-  font-size: 20px;
-  border-radius: 5px;
+  grid-row: 2;
+  color: white;
+  font-size: 0px;
   background-color: white;
   font-family: $font-family;
+  background-image: url("https://cdn.londonandpartners.com/asset/exmouth-market-f0b93801a4404c2195160e82a1e7b9a6.jpg");
+  height: 135px;
+  filter: grayscale(100%);
+}
+
+.exmouth-landing-button:hover {
+  font-size: 40px;
+  filter: none;
+  cursor: pointer;
 }
 
 .brick-landing-button {
-  grid-column: 2/3;
-  margin-bottom: 20px;
-  font-size: 20px;
-  border-radius: 5px;
+  grid-row: 3;
+  color: white;
+  font-size: 0px;
+
   background-color: white;
   font-family: $font-family;
+  background-image: url("http://londonshoppingtours.co.uk/assets/img/tours/headers/spitafields.jpg");
+  height: 135px;
+  filter: grayscale(100%);
+}
+.brick-landing-button:hover {
+  font-size: 40px;
+  filter: none;
+  cursor: pointer;
 }
 
 .borough-landing-button {
-  grid-column: 2/3;
-  margin-bottom: 20px;
-  font-size: 20px;
-  border-radius: 5px;
+  grid-row: 4;
+  color: white;
+  font-size: 0px;
+
   background-color: white;
   font-family: $font-family;
+  background-image: url("https://cdn.babyccinokids.com/wp-content/uploads/2016/07/Borough-Market-fruit-and-veg.jpg");
+  height: 135px;
+  filter: grayscale(100%);
+}
+.borough-landing-button:hover {
+  font-size: 40px;
+  filter: none;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1000px) {
+  .landing-full-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .landing-map {
+    grid-column: 2/3;
+    grid-row: 1/4;
+  }
+
+  .leather-landing-button {
+    grid-column: 1/2;
+    height: 25vh;
+  }
+
+  .exmouth-landing-button {
+    grid-column: 1/2;
+    height: 25vh;
+  }
+
+  .brick-landing-button {
+    grid-column: 1/2;
+    height: 25vh;
+  }
+
+  .borough-landing-button {
+    grid-column: 1/2;
+    height: 25vh;
+  }
 }

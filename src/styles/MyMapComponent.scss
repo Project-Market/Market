@@ -1,8 +1,10 @@
 @import "defaults";
+.my-map-height {
+  height: 40vh;
+}
 
-
-// @media screen and (min-width: 700px) {
-//     .mobile_map{
-//     display: none;
-//     }
-// }
+@media screen and (min-width: 1000px) {
+  .my-map-height {
+    height: 100vh;
+  }
+}
