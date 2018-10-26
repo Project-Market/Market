@@ -31,8 +31,6 @@ class Landing extends React.Component {
           <button className="brick-landing-button ">Brick Lane</button>
 
           <button className="borough-landing-button ">Borough Market</button>
-          <div className="left" />
-          <div className="right" />
         </div>
       </div>
     );
