@@ -86,7 +86,7 @@ class Filter extends React.Component {
   render() {
     const { selectedCuisine } = this.state.cuisine;
     return (
-      <div className='filter'>
+      <div className={this.props.name}>
         <Select
           value={selectedCuisine}
           onChange={this.cuisineSelectHandle}

@@ -1,7 +1,10 @@
-@import "defaults";
-
-.filter{
+.show{
+  display: flex;
+  flex-direction: column;
     margin-bottom: 10px;
     text-align: center;
 }
 
+.hide{
+  display: none;
+}
