@@ -26,13 +26,16 @@ class Stall extends React.Component {
 
           return (
         
-        <div  className="stall">
+        <div onClick={this.submitHandler} className="stall">
         <img className="stall__image" src={this.props.stall.image}/>
         <h3>{this.props.stall.title}</h3>
+
         <span>(Average Rating)</span>
         <StarRatings className="ratings"
+
+    
           rating={Number(this.props.stall.average_rating)}
-          starRatedColor="#0BBC62"
+          starRatedColor="#f46350"
           numberOfStars={5}
           className="star__rating"
           starDimension="20px"
@@ -42,7 +45,8 @@ class Stall extends React.Component {
             <h3>{this.props.stall.category}</h3>
             <img className="stall__credit" src={cardlogo} alt={cartlogoalt}/>
             </div>
-        <button onClick={this.submitHandler}>more info</button>
+            <hr></hr>
+        {/* <button onClick={this.submitHandler}>more info</button> */}
       </div>
     );
   }
