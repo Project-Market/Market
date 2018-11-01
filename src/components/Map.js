@@ -72,20 +72,21 @@ class Map extends React.PureComponent {
 
     if(this.state.showStallDetails){
       content.push(
-
+        <div className="stall__details">
         <StoreDetails
           key="details"
           clickStallMore={this.clickStallMore}
           stall={this.state.marketStallInfo[this.state.storeId]}
           stall_id={this.state.storeId}
         />
+        </div>
 
       );
     }
 
     if(!(window.matchMedia("(max-width:700px)").matches && this.state.showStallDetails )){
       content.push(
-        
+        <div className="map">
         <MyMapDesktop
           key="map"
           showStallDetails={this.showStallDetails}
@@ -94,12 +95,18 @@ class Map extends React.PureComponent {
           onMarkerClick={this.handleMarkerClick}
           hideEverythingElse={this.props.hideEverythingElse}
         />
+        </div>
       );
     }
 
     return (
       <div className='tested'>
-        {this.state.marketStallInfo ? (
+        {this.state.marketStallInfo && content.length === 2 ? (
+          <div>
+            <div className="market__stall">{content[0]}</div>
+            <div className="map">{content[1]}</div>
+          </div>
+        ) : this.state.marketStallInfo && content.length === 1 ? (
           <div className={this.props.name}>{content}</div>
         ) : null}
       </div>

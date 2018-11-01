@@ -2,8 +2,8 @@ create table market (
 id serial primary key,
 name varchar (30) not null,
 lat numeric(8,6) not null,
-   lang numeric(8,6) not null,
-   address text
+lang numeric(8,6) not null,
+address text
 );
 
 insert into market values (default,'Leather Lane Street Market', 51.520338, -0.109407, '46-42 Leather Ln, London, EC1N 7TJ');

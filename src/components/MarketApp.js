@@ -103,7 +103,7 @@ this.setState({hidefilter:!this.state.hidefilter})
           <Map  name={hideBackground} hideEverythingElse={this.hideEverythingElse} single={false}/>
 
           { !this.state.hideEverythingElse && (
-            <div> 
+            <div>
               <Filter className="filter"
                 name={hideBackground}
                 filteredStalls={this.state.filteredStalls}
